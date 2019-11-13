@@ -144,3 +144,70 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   clip-path: inset(100%);
   clip: rect(0 0 0);
   overflow: hidden; }
+
+/* stripping style */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+p {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+html {
+  font-size: 62.5%;
+  color: black; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; }
+
+.wrapper {
+  max-width: 1200px;
+  width: 80%;
+  margin: 0 auto; }
+
+.buttons {
+  text-align: center; }
+
+button {
+  font-size: 3rem;
+  text-transform: uppercase; }
+
+body {
+  background: #306b34;
+  position: relative; }
+
+h1 {
+  font-size: 7rem;
+  text-align: center;
+  text-transform: uppercase; }
+
+.dealerCard1,
+.dealerCard2,
+.playerCard1,
+.playerCard2 {
+  height: 335px;
+  width: 240px;
+  border: 5px solid black;
+  margin-left: 20px;
+  padding-left: 10px; }
+
+.dealerCards,
+.playerCards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 4rem; }

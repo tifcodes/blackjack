@@ -1,0 +1,44 @@
+$background-color: #306b34;
+
+/* stripping style */
+body, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+ul, 
+p{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    color: black;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
