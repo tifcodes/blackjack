@@ -4,14 +4,14 @@ using for loop create a deck of the suits and values
 use the push function to add it to the array
 currently the cards will be all in exact order
 
-2) shuffle deck of cards (create a function that would shuffle the cards)
+2) shuffle deck of cards
 create a function and go through the iteration  
 using for loop around 500 times to get a randomize order
 to randomize use Math.floor and Math.random
 
 3) deal the card to the player first 
+using on click event when they hit new game -> deal new cards
 to get a card from array use .pop
-using on click event when they hit new game -> deal new card
 
 4) dealer and player1 cards (show cards)
 push the card to the array
