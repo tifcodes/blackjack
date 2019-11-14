@@ -179,7 +179,10 @@ img {
 
 button {
   font-size: 3rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  border: none;
+  background: red;
+  margin: 10px; }
 
 body {
   background: #306b34;

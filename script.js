@@ -36,32 +36,65 @@ card.dealCards = function () {
 // dealer and player1 cards (show cards)
 card.showCards = function () {
     let cardValueArray = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 2; i++) {
         let cardValue = card.dealCards().Value;
         let suitValue = card.dealCards().Suit;
         cardValueArray.push(cardValue, suitValue);
     }
-    console.log(cardValueArray)
     return cardValueArray;
 }
 
+
 card.showEachCards = function () {
-    const showEachCardArray = card.showCards();
-    $(".playerCard1").append(`<p>${showEachCardArray[0]}</p> <p class = "suits">${showEachCardArray[1]}</p> <p class = "value"> ${showEachCardArray[0]}</p>`);
-    $(".dealerCard1").append(`<p>${showEachCardArray[2]}</p> <p class = "suits">${showEachCardArray[3]}</p> <p class = "value"> ${showEachCardArray[2]}</p>`);
-    $(".playerCard2").append(`<p>${showEachCardArray[4]}</p> <p class = "suits">${showEachCardArray[5]}</p> <p class = "value"> ${showEachCardArray[4]}</p>`);
-    $(".dealerCard2").append(`<p>${showEachCardArray[6]}</p> <p class = "suits">${showEachCardArray[7]}</p> <p class = "value"> ${showEachCardArray[6]}</>`);
+    const showPlayerCardArray = card.showCards();
+    const showDealerCardArray = card.showCards();
+    $(".playerCard1").append(`<p>${showPlayerCardArray[0]}</p> 
+    <p class = "suits">${showPlayerCardArray[1]}</p> 
+    <p class = "value"> ${showPlayerCardArray[0]}</p>`);
+    $(".playerCard2").append(`<p>${showPlayerCardArray[2]}</p> 
+    <p class = "suits">${showPlayerCardArray[3]}</p> 
+    <p class = "value"> ${showPlayerCardArray[2]}</p>`);
+    $(".dealerCard1").append(`<p>${showDealerCardArray[0]}</p> 
+    <p class = "suits">${showDealerCardArray[1]}</p> 
+    <p class = "value"> ${showDealerCardArray[0]}</p>`);
+    $(".dealerCard2").append(`<p>${showDealerCardArray[2]}</p> 
+    <p class = "suits">${showDealerCardArray[3]}</p> 
+    <p class = "value"> ${showDealerCardArray[2]}</>`);
+
+    const cardAddValueArray = showPlayerCardArray.filter(function (v, i) {
+        return i % 2 == 0;
+    })
+
+    const cardAddDealerValueArray = showDealerCardArray.filter(function (v, i) {
+        return i % 2 == 0;
+    })
+    
+    console.log(cardAddValueArray);
+    console.log(cardAddDealerValueArray);
+    console.log(getValue(cardAddValueArray[0]) + getValue(cardAddValueArray[1]));
+    console.log(getValue(cardAddDealerValueArray[0]) + getValue(cardAddDealerValueArray[1]));
+}
+
+// get value/weight for cards
+const getValue = function (card) {
+    if (card === "J" || card === "Q" || card === "K") {
+        return 10;
+    } else if (card === "A") {
+        return 1;
+    } else {
+        return parseInt(card);
+    }
 }
 
 // add cards (banker and player)
-card.addCards = function(){
-    const showEachCardArray = card.showCards();
-    showEachCardArray.filter(function(number) {
-        console.log(parseInt(number))
-        return parseInt(number)
-    })
-    console.log(showEachCardArray)
-}
+// card.addCards = function(){
+//     console.log(showEachCardArray)
+//     showEachCardArray.filter(function(number) {
+//         console.log(parseInt(number))
+//         return parseInt(number)
+//     })
+
+// }
 
 
 // if dealers hit 17 no need cards, but lower than 17 get more cards
@@ -74,7 +107,6 @@ card.init = function () {
     card.shuffleCards();
     card.showCards();
     card.showEachCards();
-    card.addCards();
 }
 
 // document ready
