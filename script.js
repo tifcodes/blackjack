@@ -94,22 +94,9 @@ card.cardDealerCheck = function (array) {
         <p class = "suits">${oneDealerCard[1]}</p> 
         <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
-        console.log(oneCardConcat)
-        // card.compareCards(showPlayerCardArray, showDealerCardArray)
+        card.compareCards(showPlayerCardArray, oneCardConcat)
     }
 }
-
-// card.cardPlayerCheck = function (array) {
-//     if (card.addCards(array) == 21) {
-//         return
-//     } else if (card.addCards(array) > 22) {
-//         return
-//     } else if (card.addCards(array) >= 17) {
-//         return
-//     } else if (card.addCards(array) < 17) {
-//         return
-//     }
-// }
 
 card.compareCards = function (num1, num2) {
     let compare1 = card.addCards(num1);
@@ -117,7 +104,7 @@ card.compareCards = function (num1, num2) {
     if (compare1 >= 22) {
         console.log(`player bust! ${compare1}`)
     } else if (compare2 >= 22) {
-        console.log(`dealer bust! ${compare2}` )
+        console.log(`dealer bust! ${compare2}`)
     } else if (compare1 > compare2) {
         console.log(`player win! ${compare1}`)
     } else if (compare1 < compare2) {
@@ -134,6 +121,8 @@ card.compareCardsBlackJack = function (num1, num2) {
         console.log("player blackjack")
     } else if (blackjack2 == 21) {
         console.log("dealer blackjack")
+    } else if (blackjack1 == 21 && blackjack2 == 21) {
+        console.log("draw")
     }
 }
 
@@ -149,13 +138,18 @@ card.showOneCard = function () {
 }
 
 $('#hit').on("click", function () {
+    let moreCards = showPlayerCardArray;
     oneCard = card.showOneCard();
     $(".playerCards").append(`<div class = "playerCard3"> <p>${oneCard[0]}</p> 
     <p class = "suits">${oneCard[1]}</p> 
     <p class = "value"> ${oneCard[0]}</p> </div>`);
-    oneCardConcat = showPlayerCardArray.concat(oneCard);
-    if (card.addCards(oneCardConcat) >= 22) {
-        console.log("dealer win")
+
+    for (i = 0; i < moreCards.length; i++) {
+        oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
+        if (card.addCards(moreCards) >= 22) {
+            console.log(`dealer win ${card.addCards(moreCards)}`)
+        }
+        return moreCards;
     }
 })
 
@@ -168,8 +162,8 @@ $('#new').on("click", function () {
     $('.dealerCards').empty();
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
+    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
     card.showEachCards();
-    card.addCards();
 })
 
 // init
@@ -178,10 +172,11 @@ card.init = function () {
     card.shuffleCards();
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
+    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
     card.showEachCards();
     // card.cardDealerCheck(showDealerCardArray);
     // card.cardPlayerCheck(showPlayerCardArray);
-    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
+
 }
 
 // document ready
