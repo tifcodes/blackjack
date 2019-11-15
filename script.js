@@ -3,6 +3,8 @@ const card = {};
 const cardSuits = ["♦️", "♥️", "♠️", "♣️"];
 const cardValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 let cardArray = new Array();
+let showPlayerCardArray = new Array();
+let showDealerCardArray = new Array();
 
 card.getCard = function () {
     let cardArray = new Array();
@@ -28,85 +30,106 @@ card.shuffleCards = function () {
     return cardArray;
 }
 
-// deal card
-card.dealCards = function () {
-    return cardArray.pop();
-}
-
-// dealer and player1 cards (show cards)
+// dealer and player1 cards (deal and show cards)
 card.showCards = function () {
     let cardValueArray = [];
     for (let i = 0; i < 2; i++) {
-        let cardValue = card.dealCards().Value;
-        let suitValue = card.dealCards().Suit;
+        let cardValue = cardArray.pop().Value;
+        let suitValue = cardArray.pop().Suit;
         cardValueArray.push(cardValue, suitValue);
     }
     return cardValueArray;
 }
 
-
 card.showEachCards = function () {
-    const showPlayerCardArray = card.showCards();
-    const showDealerCardArray = card.showCards();
-    $(".playerCard1").append(`<p>${showPlayerCardArray[0]}</p> 
+    $(".playerCards").append(`<div class = "playerCard1"> <p>${showPlayerCardArray[0]}</p> 
     <p class = "suits">${showPlayerCardArray[1]}</p> 
-    <p class = "value"> ${showPlayerCardArray[0]}</p>`);
-    $(".playerCard2").append(`<p>${showPlayerCardArray[2]}</p> 
+    <p class = "value"> ${showPlayerCardArray[0]}</p> </div>`);
+    $(".playerCards").append(`<div class = "playerCard2"> <p>${showPlayerCardArray[2]}</p> 
     <p class = "suits">${showPlayerCardArray[3]}</p> 
-    <p class = "value"> ${showPlayerCardArray[2]}</p>`);
-    $(".dealerCard1").append(`<p>${showDealerCardArray[0]}</p> 
+    <p class = "value"> ${showPlayerCardArray[2]}</p> </div>`);
+    $(".dealerCards").append(`<div class = "dealerCard1"> <p>${showDealerCardArray[0]}</p> 
     <p class = "suits">${showDealerCardArray[1]}</p> 
-    <p class = "value"> ${showDealerCardArray[0]}</p>`);
-    $(".dealerCard2").append(`<p>${showDealerCardArray[2]}</p> 
+    <p class = "value"> ${showDealerCardArray[0]}</p> </div>`);
+    $(".dealerCards").append(`<div class = "dealerCard2"><p>${showDealerCardArray[2]}</p> 
     <p class = "suits">${showDealerCardArray[3]}</p> 
-    <p class = "value"> ${showDealerCardArray[2]}</>`);
-
-    const cardAddValueArray = showPlayerCardArray.filter(function (v, i) {
-        return i % 2 == 0;
-    })
-
-    const cardAddDealerValueArray = showDealerCardArray.filter(function (v, i) {
-        return i % 2 == 0;
-    })
-    
-    console.log(cardAddValueArray);
-    console.log(cardAddDealerValueArray);
-    console.log(getValue(cardAddValueArray[0]) + getValue(cardAddValueArray[1]));
-    console.log(getValue(cardAddDealerValueArray[0]) + getValue(cardAddDealerValueArray[1]));
+    <p class = "value"> ${showDealerCardArray[2]}</p> </div>`);
 }
 
 // get value/weight for cards
-const getValue = function (card) {
+card.getValue = function (card) {
     if (card === "J" || card === "Q" || card === "K") {
         return 10;
     } else if (card === "A") {
-        return 1;
+        return 11;
     } else {
         return parseInt(card);
     }
 }
 
 // add cards (banker and player)
-// card.addCards = function(){
-//     console.log(showEachCardArray)
-//     showEachCardArray.filter(function(number) {
-//         console.log(parseInt(number))
-//         return parseInt(number)
-//     })
+card.addCardFilter = function (array) {
+    const arrayFilter = array.filter(function (v, i) {
+            return i % 2 == 0;
+        })
+    return arrayFilter; 
+}
 
-// }
-
+card.addCards = function(array) {
+    arrayFilter = card.addCardFilter(array)
+    return card.getValue(arrayFilter[0]) + card.getValue(arrayFilter[1])
+}
 
 // if dealers hit 17 no need cards, but lower than 17 get more cards
+card.cardCheck = function(num)
 
 // player1 (hit, stand, new game)
+card.showOneCard = function () {
+    let oneCardArray = [];
+    for (let i = 0; i < 1; i++) {
+        let cardValue = cardArray.pop().Value;
+        let suitValue = cardArray.pop().Suit;
+        oneCardArray.push(cardValue, suitValue);
+    }
+    console.log(oneCardArray)
+    return oneCardArray;
+}
+
+$('#hit').on("click", function () {
+    oneCard = card.showOneCard();
+    $(".playerCards").append(`<div class = "playerCard3"> <p>${oneCard[0]}</p> 
+    <p class = "suits">${oneCard[1]}</p> 
+    <p class = "value"> ${oneCard[0]}</p> </div>`);
+})
+
+$('#stand').on("click", function () {
+    if (getValue > 17) {
+
+    }
+    oneDealerCard = card.showOneCard();
+    $(".dealerCards").append(`<div class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
+    <p class = "suits">${oneDealerCard[1]}</p> 
+    <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
+})
+
+$('#new').on("click", function () {
+    $('.playerCards').empty();
+    $('.dealerCards').empty();
+    showPlayerCardArray = card.showCards();
+    showDealerCardArray = card.showCards();
+    card.showEachCards();
+    card.addCards();
+})
 
 // init
 card.init = function () {
     cardArray = card.getCard()
     card.shuffleCards();
-    card.showCards();
+    showPlayerCardArray = card.showCards();
+    showDealerCardArray = card.showCards();
     card.showEachCards();
+    card.addCards(showPlayerCardArray);
+    card.addCards(showDealerCardArray);
 }
 
 // document ready

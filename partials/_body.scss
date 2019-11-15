@@ -11,10 +11,12 @@ h1 {
 
 .dealerCard1,
 .dealerCard2,
+.dealerCard3,
 .playerCard1,
-.playerCard2 {
-    height: 335px;
-    width: 240px;
+.playerCard2,
+.playerCard3 {
+    height: 315px;
+    width: 220px;
     border: 5px solid black;
     margin-left: 20px;
     padding-left: 10px;
@@ -22,6 +24,7 @@ h1 {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    background: white;
 }
 
 // .deckOfCards {
