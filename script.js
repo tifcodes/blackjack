@@ -70,18 +70,72 @@ card.getValue = function (card) {
 // add cards (banker and player)
 card.addCardFilter = function (array) {
     const arrayFilter = array.filter(function (v, i) {
-            return i % 2 == 0;
-        })
-    return arrayFilter; 
+        return i % 2 == 0;
+    })
+    return arrayFilter;
 }
 
-card.addCards = function(array) {
+card.addCards = function (array) {
+    let sum = 0;
     arrayFilter = card.addCardFilter(array)
-    return card.getValue(arrayFilter[0]) + card.getValue(arrayFilter[1])
+    for (i = 0; i < arrayFilter.length; i++) {
+        sum += card.getValue(arrayFilter[i])
+    }
+    return sum;
 }
 
 // if dealers hit 17 no need cards, but lower than 17 get more cards
-card.cardCheck = function(num)
+card.cardDealerCheck = function (array) {
+    if (card.addCards(array) >= 17) {
+        card.compareCards(showPlayerCardArray, showDealerCardArray)
+    } else if (card.addCards(array) < 17) {
+        oneDealerCard = card.showOneCard();
+        $(".dealerCards").append(`<div class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
+        <p class = "suits">${oneDealerCard[1]}</p> 
+        <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
+        oneCardConcat = showDealerCardArray.concat(oneDealerCard);
+        console.log(oneCardConcat)
+        // card.compareCards(showPlayerCardArray, showDealerCardArray)
+    }
+}
+
+// card.cardPlayerCheck = function (array) {
+//     if (card.addCards(array) == 21) {
+//         return
+//     } else if (card.addCards(array) > 22) {
+//         return
+//     } else if (card.addCards(array) >= 17) {
+//         return
+//     } else if (card.addCards(array) < 17) {
+//         return
+//     }
+// }
+
+card.compareCards = function (num1, num2) {
+    let compare1 = card.addCards(num1);
+    let compare2 = card.addCards(num2);
+    if (compare1 >= 22) {
+        console.log(`player bust! ${compare1}`)
+    } else if (compare2 >= 22) {
+        console.log(`dealer bust! ${compare2}` )
+    } else if (compare1 > compare2) {
+        console.log(`player win! ${compare1}`)
+    } else if (compare1 < compare2) {
+        console.log(`dealer win ${compare2}`)
+    } else if (compare1 == compare2) {
+        console.log("draw")
+    }
+}
+
+card.compareCardsBlackJack = function (num1, num2) {
+    let blackjack1 = card.addCards(num1);
+    let blackjack2 = card.addCards(num2);
+    if (blackjack1 == 21) {
+        console.log("player blackjack")
+    } else if (blackjack2 == 21) {
+        console.log("dealer blackjack")
+    }
+}
 
 // player1 (hit, stand, new game)
 card.showOneCard = function () {
@@ -91,7 +145,6 @@ card.showOneCard = function () {
         let suitValue = cardArray.pop().Suit;
         oneCardArray.push(cardValue, suitValue);
     }
-    console.log(oneCardArray)
     return oneCardArray;
 }
 
@@ -100,16 +153,14 @@ $('#hit').on("click", function () {
     $(".playerCards").append(`<div class = "playerCard3"> <p>${oneCard[0]}</p> 
     <p class = "suits">${oneCard[1]}</p> 
     <p class = "value"> ${oneCard[0]}</p> </div>`);
+    oneCardConcat = showPlayerCardArray.concat(oneCard);
+    if (card.addCards(oneCardConcat) >= 22) {
+        console.log("dealer win")
+    }
 })
 
 $('#stand').on("click", function () {
-    if (getValue > 17) {
-
-    }
-    oneDealerCard = card.showOneCard();
-    $(".dealerCards").append(`<div class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
-    <p class = "suits">${oneDealerCard[1]}</p> 
-    <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
+    card.cardDealerCheck(showDealerCardArray)
 })
 
 $('#new').on("click", function () {
@@ -128,8 +179,9 @@ card.init = function () {
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
     card.showEachCards();
-    card.addCards(showPlayerCardArray);
-    card.addCards(showDealerCardArray);
+    // card.cardDealerCheck(showDealerCardArray);
+    // card.cardPlayerCheck(showPlayerCardArray);
+    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
 }
 
 // document ready
