@@ -174,6 +174,10 @@ img {
   width: 80%;
   margin: 0 auto; }
 
+body {
+  font-family: 'Russo One', sans-serif;
+  line-height: 1.6; }
+
 .buttons {
   text-align: center; }
 
@@ -184,17 +188,57 @@ button {
   background: white;
   margin: 10px;
   text-align: center;
-  font-weight: bold;
-  border: 3px solid black; }
+  font-weight: bold; }
 
 body {
   background: #306b34;
   position: relative; }
 
 h1 {
-  font-size: 7rem;
+  font-size: 6rem;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  line-height: normal; }
+
+.instructions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh; }
+  .instructions div {
+    height: 75vh;
+    width: 75vw;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .instructions div h3 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      text-align: center; }
+    .instructions div li {
+      font-size: 2rem;
+      line-height: 1.6; }
+    .instructions div button {
+      border: 3px solid black; }
 
 .dealerCard1,
 .dealerCard2,
@@ -202,10 +246,9 @@ h1 {
 .playerCard1,
 .playerCard2,
 .playerCard3 {
-  height: 315px;
-  width: 220px;
-  border: 5px solid black;
-  margin-left: 20px;
+  height: 260px;
+  width: 180px;
+  margin-left: 10px;
   padding-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -237,10 +280,47 @@ h1 {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  font-size: 8rem; }
+  font-size: 7rem; }
 
 .value {
   -ms-flex-item-align: end;
   -ms-grid-row-align: end;
   align-self: end;
   padding-right: 10px; }
+
+.cardRed {
+  color: red; }
+
+.flipCard {
+  background-color: transparent;
+  width: 180px;
+  height: 260px;
+  margin-left: 10px; }
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
+
+.flipCardFront, .flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.flipCardBack {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  margin-left: 10px; }
+
+.flipped {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }

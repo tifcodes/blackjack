@@ -42,18 +42,40 @@ card.showCards = function () {
 }
 
 card.showEachCards = function () {
-    $(".playerCards").append(`<div class = "playerCard1"> <p>${showPlayerCardArray[0]}</p> 
+    // console.log(showPlayerCardArray[1] == "♦️")
+
+    $(".playerCards").append(`<div id = "playerCard1" class = "playerCard1"> <p>${showPlayerCardArray[0]}</p> 
     <p class = "suits">${showPlayerCardArray[1]}</p> 
     <p class = "value"> ${showPlayerCardArray[0]}</p> </div>`);
-    $(".playerCards").append(`<div class = "playerCard2"> <p>${showPlayerCardArray[2]}</p> 
+    $(".playerCards").append(`<div id = "playerCard2" class = "playerCard2"> <p>${showPlayerCardArray[2]}</p> 
     <p class = "suits">${showPlayerCardArray[3]}</p> 
     <p class = "value"> ${showPlayerCardArray[2]}</p> </div>`);
-    $(".dealerCards").append(`<div class = "dealerCard1"> <p>${showDealerCardArray[0]}</p> 
+    $(".dealerCards").append(`<div id = "dealerCard1" class = "dealerCard1"> <p>${showDealerCardArray[0]}</p> 
     <p class = "suits">${showDealerCardArray[1]}</p> 
     <p class = "value"> ${showDealerCardArray[0]}</p> </div>`);
-    $(".dealerCards").append(`<div class = "dealerCard2"><p>${showDealerCardArray[2]}</p> 
+    $(".dealerCards").append(`<div class="flipCard"> <div class="flipCardInner">
+    <div class="flipCardFront">
+      <img src="./asset/playingCardBack.png" alt="bicycle playing card back" style="width:180px;height:260px;">
+    </div>
+    <div class="flipCardBack">
+        <div id = "dealerCard2" class = "dealerCard2"><p>${showDealerCardArray[2]}</p> 
     <p class = "suits">${showDealerCardArray[3]}</p> 
-    <p class = "value"> ${showDealerCardArray[2]}</p> </div>`);
+    <p class = "value"> ${showDealerCardArray[2]}</p> </div>
+    </div>
+  </div>
+</div> `);
+    if (showPlayerCardArray[1] == "♦️" || showPlayerCardArray[1] == "♥️") {
+        $("#playerCard1").addClass("cardRed")
+    }
+    if (showPlayerCardArray[3] == "♦️" || showPlayerCardArray[3] == "♥️") {
+        $("#playerCard2").addClass("cardRed")
+    }
+    if (showDealerCardArray[1] == "♦️" || showDealerCardArray[1] == "♥️") {
+        $("#dealerCard1").addClass("cardRed")
+    }
+    if (showDealerCardArray[3] == "♦️" || showDealerCardArray[3] == "♥️") {
+        $("#dealerCard2").addClass("cardRed")
+    }
 }
 
 // get value/weight for cards
@@ -66,6 +88,8 @@ card.getValue = function (card) {
         return parseInt(card);
     }
 }
+
+
 
 // add cards (banker and player)
 card.addCardFilter = function (array) {
@@ -90,9 +114,12 @@ card.cardDealerCheck = function (array) {
         card.compareCards(showPlayerCardArray, showDealerCardArray)
     } else if (card.addCards(array) < 17) {
         oneDealerCard = card.showOneCard();
-        $(".dealerCards").append(`<div class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
+        $(".dealerCards").append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
         <p class = "suits">${oneDealerCard[1]}</p> 
         <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
+        if (oneDealerCard[1] == "♦️" || oneDealerCard[1] == "♥️") {
+            $("#dealerCard3").addClass("cardRed")
+        }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
@@ -102,14 +129,19 @@ card.compareCards = function (num1, num2) {
     let compare1 = card.addCards(num1);
     let compare2 = card.addCards(num2);
     if (compare1 >= 22) {
+        $("#main-div").append(`<div class = "winner"> <p> dealer wins </p> </div>`);
         console.log(`player bust! ${compare1}`)
     } else if (compare2 >= 22) {
+        $("#main-div").append(`<div class = "winner"> <p> player wins </p> </div>`);
         console.log(`dealer bust! ${compare2}`)
     } else if (compare1 > compare2) {
+        $("#main-div").append(`<div class = "winner"> <p> player wins </p> </div>`);
         console.log(`player win! ${compare1}`)
     } else if (compare1 < compare2) {
+        $("#main-div").append(`<div class = "winner"> <p> dealer wins </p> </div>`);
         console.log(`dealer win ${compare2}`)
     } else if (compare1 == compare2) {
+        $("#main-div").append(`<div class = "winner"> <p> draw </p> </div>`);
         console.log("draw")
     }
 }
@@ -118,10 +150,13 @@ card.compareCardsBlackJack = function (num1, num2) {
     let blackjack1 = card.addCards(num1);
     let blackjack2 = card.addCards(num2);
     if (blackjack1 == 21) {
+        $("main-div").append(`<div class = "winner"> <p> player wins </p> </div>`);
         console.log("player blackjack")
     } else if (blackjack2 == 21) {
+        $("#main-div").append(`<div class = "winner"> <p> dealer wins </p> </div>`);
         console.log("dealer blackjack")
     } else if (blackjack1 == 21 && blackjack2 == 21) {
+        $("main-div").append(`<div class = "winner"> <p> draw </p> </div>`);
         console.log("draw")
     }
 }
@@ -140,9 +175,12 @@ card.showOneCard = function () {
 $('#hit').on("click", function () {
     let moreCards = showPlayerCardArray;
     oneCard = card.showOneCard();
-    $(".playerCards").append(`<div class = "playerCard3"> <p>${oneCard[0]}</p> 
+    $(".playerCards").append(`<div id = "playerCard3" class = "playerCard3"> <p>${oneCard[0]}</p> 
     <p class = "suits">${oneCard[1]}</p> 
     <p class = "value"> ${oneCard[0]}</p> </div>`);
+    if (oneCard[1] == "♦️" || oneCard[1] == "♥️") {
+        $("#playerCard3").addClass("cardRed")
+    }
 
     for (i = 0; i < moreCards.length; i++) {
         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
@@ -154,6 +192,7 @@ $('#hit').on("click", function () {
 })
 
 $('#stand').on("click", function () {
+    $(".flipCardInner").addClass("flipped");
     card.cardDealerCheck(showDealerCardArray)
 })
 
@@ -174,17 +213,25 @@ card.init = function () {
     showDealerCardArray = card.showCards();
     card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
     card.showEachCards();
-    // card.cardDealerCheck(showDealerCardArray);
-    // card.cardPlayerCheck(showPlayerCardArray);
-
 }
 
 // document ready
 $(function () {
     card.init();
+    $("#instructions").show()
+    $("#main-div").hide()
+
+    $("#letsPlay").on("click", function () {
+        $("#instructions").hide()
+        $("#main-div").show()
+    })
 });
 
+// need to do
+// hover
+// media queries
 // STRETCH GOALS
+// audio
 // add how many wins, loses and draws
 // betting
 // more deck of cards

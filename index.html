@@ -6,19 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> BlackJack</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Russo+One&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div id="instructions" class="instructions">
+        <div>
+            <h3> how to play</h3>
+            <ul>
+                <li> The goal of the game is to beat the dealer and getting close to 21</li>
+                <li> The game starts with 2 cards on the page </li>
+                <li> If your cards is equal to 21, you win </li>
+                <li> If your cards add to less than 21 but higher than dealer, you win</li>
+                <li> If your cards add to more than 21, you lose </li>
+                <li> If you want to add more cards, click the "hit" button</li>
+                <li> If you don't want any more cards, click the "stand" button</li>
+                <li> Click "new game" to start the game again</li>
+            </ul>
+            <button id="letsPlay"> let's play </button>
+        </div>
+    </div>
+    
+    <div id="main-div" class="wrapper">
         <section class="dealerCards"></section>
         <h1> blackjack </h1>
-        <section class ="deckOfCards"></section>
+        <!-- <section class ="deckOfCards"></section> -->
         <section class="playerCards"></section>
         <div class="buttons">
-            <button id = "hit"> hit </button>
-            <button id = "stand"> stand </button>
-            <button id = "new"> new game</button>
+            <button id="hit"> hit </button>
+            <button id="stand"> stand </button>
+            <button id="new"> new game</button>
         </div>
     </div>
 

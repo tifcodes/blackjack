@@ -34,6 +34,11 @@ img {
     margin: 0 auto;
 }
 
+body {
+    font-family: 'Russo One', sans-serif;
+    line-height: 1.6;
+}
+
 .buttons {
     text-align: center;
 }
@@ -46,5 +51,5 @@ button {
     margin: 10px;
     text-align: center;
     font-weight: bold;
-    border: 3px solid black;
 }
+
