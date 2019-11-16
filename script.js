@@ -128,23 +128,18 @@ card.compareCards = function (num1, num2) {
     if (compare1 >= 22) {
         alert("dealer win")
         $("h2").append("<div> dealer win </div>");
-        console.log(`player bust! ${compare1}`)
     } else if (compare2 >= 22) {
         alert("player win")
         $("h2").append("<div> player win </div>");
-        console.log(`dealer bust! ${compare2}`)
     } else if (compare1 > compare2) {
         alert("player win")
         $("h2").append("<div> player win </div>");
-        console.log(`player win! ${compare1}`)
     } else if (compare1 < compare2) {
         alert("dealer win")
         $("h2").append("<div> dealer win </div>");
-        console.log(`dealer win ${compare2}`)
     } else if (compare1 == compare2) {
         alert("draw")
         $("h2").append("<div> draw </div>");
-        console.log("draw")
     }
 }
 
@@ -154,15 +149,12 @@ card.compareCardsBlackJack = function (num1, num2) {
     if (blackjack1 == 21) {
         alert("player win")
         $("h2").append("player wins");
-        console.log("player blackjack")
     } else if (blackjack2 == 21) {  
         alert("dealer win")
         $("h2").append("dealer wins");
-        console.log("dealer blackjack")
     } else if (blackjack1 == 21 && blackjack2 == 21) {
         alert("draw")
         $("h2").append("draw");
-        console.log("draw")
     }
 }
 
