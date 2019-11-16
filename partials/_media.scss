@@ -1,0 +1,71 @@
+@media (max-width: 1205px) {
+    .wrapper{
+        width: 90%;
+    }
+}
+
+@media (max-width: 1075px) {
+    .wrapper{
+        width: 100%;
+    }
+
+    .instructions {
+        div {
+            width: 100vh;
+            padding: 50px;
+        }
+    }
+}
+
+@media (max-width: 625px) {
+    .instructions {
+        div {
+            height: 100vh;
+        }
+    }
+}
+
+@media (max-width: 465px) {
+    h1 {
+        font-size: 5rem;
+    }
+    .instructions {
+        div {
+            height: 100vh;
+            padding: 25px;
+            h3 {
+                font-size: 3.3rem;
+            }
+            li {
+                font-size: 1.8rem;
+            }
+        }
+    }
+    .playerCard1,
+    .playerCard2,
+    .playerCard3,
+    .dealerCard1,
+    .dealerCard2,
+    .dealerCard3,
+    .flipCardFront,
+    .flipCard {
+        height: 220px;
+        width: 140px;
+        margin: 5px;
+    }
+
+    .dealerCards,
+    .playerCards {
+        font-size: 3.5rem;
+        .suits {
+            font-size: 6rem;
+        }
+    }
+
+    .flipCardFront {
+        margin: 0px 5px 5px 0;
+    }
+    .flipCardBack {
+        margin: -5px 5px 5px 5px;
+    }
+}

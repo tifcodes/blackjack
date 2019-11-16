@@ -42,8 +42,6 @@ card.showCards = function () {
 }
 
 card.showEachCards = function () {
-    // console.log(showPlayerCardArray[1] == "♦️")
-
     $(".playerCards").append(`<div id = "playerCard1" class = "playerCard1"> <p>${showPlayerCardArray[0]}</p> 
     <p class = "suits">${showPlayerCardArray[1]}</p> 
     <p class = "value"> ${showPlayerCardArray[0]}</p> </div>`);
@@ -55,7 +53,7 @@ card.showEachCards = function () {
     <p class = "value"> ${showDealerCardArray[0]}</p> </div>`);
     $(".dealerCards").append(`<div class="flipCard"> <div class="flipCardInner">
     <div class="flipCardFront">
-      <img src="./asset/playingCardBack.png" alt="bicycle playing card back" style="width:180px;height:260px;">
+      <img src="./asset/playingCardBack.png" alt="bicycle playing card back">
     </div>
     <div class="flipCardBack">
         <div id = "dealerCard2" class = "dealerCard2"><p>${showDealerCardArray[2]}</p> 
@@ -176,12 +174,11 @@ $('#hit').on("click", function () {
     let moreCards = showPlayerCardArray;
     oneCard = card.showOneCard();
     $(".playerCards").append(`<div id = "playerCard3" class = "playerCard3"> <p>${oneCard[0]}</p> 
-    <p class = "suits">${oneCard[1]}</p> 
-    <p class = "value"> ${oneCard[0]}</p> </div>`);
+            <p class = "suits">${oneCard[1]}</p> 
+            <p class = "value"> ${oneCard[0]}</p> </div>`);
     if (oneCard[1] == "♦️" || oneCard[1] == "♥️") {
         $("#playerCard3").addClass("cardRed")
     }
-
     for (i = 0; i < moreCards.length; i++) {
         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
         if (card.addCards(moreCards) >= 22) {

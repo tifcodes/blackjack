@@ -166,7 +166,7 @@ html {
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
   display: block; }
 
 .wrapper {
@@ -246,9 +246,9 @@ h1 {
 .playerCard1,
 .playerCard2,
 .playerCard3 {
-  height: 260px;
-  width: 180px;
-  margin-left: 10px;
+  height: 240px;
+  width: 170px;
+  margin: 10px;
   padding-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,27 +275,27 @@ h1 {
   -ms-flex-pack: center;
   justify-content: center;
   font-size: 4rem; }
-
-.suits {
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-  font-size: 7rem; }
-
-.value {
-  -ms-flex-item-align: end;
-  -ms-grid-row-align: end;
-  align-self: end;
-  padding-right: 10px; }
+  .dealerCards .suits,
+  .playerCards .suits {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    font-size: 7rem; }
+  .dealerCards .value,
+  .playerCards .value {
+    -ms-flex-item-align: end;
+    -ms-grid-row-align: end;
+    align-self: end;
+    padding-right: 10px; }
 
 .cardRed {
   color: red; }
 
 .flipCard {
   background-color: transparent;
-  width: 180px;
-  height: 260px;
-  margin-left: 10px; }
+  height: 240px;
+  width: 170px;
+  margin: 10px; }
 
 .flipCardInner {
   position: relative;
@@ -309,6 +309,10 @@ h1 {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
 
+.flipCardFront {
+  height: 240px;
+  width: 170px; }
+
 .flipCardFront, .flipCardBack {
   position: absolute;
   width: 100%;
@@ -319,8 +323,55 @@ h1 {
 .flipCardBack {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  margin-left: 10px; }
+  margin: -10px 10px 10px 10px; }
 
 .flipped {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg); }
+
+@media (max-width: 1205px) {
+  .wrapper {
+    width: 90%; } }
+
+@media (max-width: 1075px) {
+  .wrapper {
+    width: 100%; }
+  .instructions div {
+    width: 100vh;
+    padding: 50px; } }
+
+@media (max-width: 625px) {
+  .instructions div {
+    height: 100vh; } }
+
+@media (max-width: 465px) {
+  h1 {
+    font-size: 5rem; }
+  .instructions div {
+    height: 100vh;
+    padding: 25px; }
+    .instructions div h3 {
+      font-size: 3.3rem; }
+    .instructions div li {
+      font-size: 1.8rem; }
+  .playerCard1,
+  .playerCard2,
+  .playerCard3,
+  .dealerCard1,
+  .dealerCard2,
+  .dealerCard3,
+  .flipCardFront,
+  .flipCard {
+    height: 220px;
+    width: 140px;
+    margin: 5px; }
+  .dealerCards,
+  .playerCards {
+    font-size: 3.5rem; }
+    .dealerCards .suits,
+    .playerCards .suits {
+      font-size: 6rem; }
+  .flipCardFront {
+    margin: 0px 5px 5px 0; }
+  .flipCardBack {
+    margin: -5px 5px 5px 5px; } }

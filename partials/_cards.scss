@@ -3,11 +3,11 @@
 .dealerCard3,
 .playerCard1,
 .playerCard2,
-.playerCard3 {
-    height: 260px;
-    width: 180px;
+.playerCard3{
+    height: 240px;
+    width: 170px;
     // border: 5px solid black;
-    margin-left: 10px;
+    margin: 10px;
     padding-left: 10px;
     display: flex;
     flex-direction: column;
@@ -22,16 +22,14 @@
     flex-wrap: wrap;
     justify-content: center;
     font-size: 4rem;
-}
-
-.suits {
-    align-self: center;
-    font-size: 7rem;
-}
-
-.value {
-    align-self: end;
-    padding-right: 10px;
+    .suits {
+        align-self: center;
+        font-size: 7rem;
+    }
+    .value {
+        align-self: end;
+        padding-right: 10px;
+    }
 }
 
 .cardRed {
@@ -42,9 +40,9 @@
 
 .flipCard {
     background-color: transparent;
-    width: 180px;
-    height: 260px;
-    margin-left: 10px;
+    height: 240px;
+    width: 170px;
+    margin: 10px;
 }
 
 .flipCardInner {
@@ -53,6 +51,11 @@
     height: 100%;
     transition: transform 0.3s;
     transform-style: preserve-3d;
+}
+
+.flipCardFront {
+    height: 240px;
+    width: 170px;
 }
 
 .flipCardFront, .flipCardBack {
@@ -64,7 +67,7 @@
 
 .flipCardBack {
     transform: rotateY(180deg);
-    margin-left: 10px;
+    margin: -10px 10px 10px 10px;
 } 
 
 .flipped {
