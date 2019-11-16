@@ -22,7 +22,7 @@ card.getCard = function () {
 
 // shuffle deck of cards
 card.shuffleCards = function () {
-    for (let i = 0; i < 700; i++) {
+    for (let i = 0; i < 500; i++) {
         let cardPlace1 = Math.floor(Math.random() * cardArray.length);
         let cardPlace2 = Math.floor(Math.random() * cardArray.length);
         [cardArray[cardPlace1], cardArray[cardPlace2]] = [cardArray[cardPlace2], cardArray[cardPlace1]]
@@ -114,9 +114,6 @@ card.cardDealerCheck = function (array) {
         $(".dealerCards").append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
         <p class = "suits">${oneDealerCard[1]}</p> 
         <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
-        // if (oneDealerCard[1] == "♦️" || oneDealerCard[1] == "♥️") {
-        //     $("#dealerCard3").addClass("cardRed")
-        // }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
@@ -166,6 +163,9 @@ card.showOneCard = function () {
         let suitValue = cardArray.pop().Suit;
         oneCardArray.push(cardValue, suitValue);
     }
+    if (oneCardArray[1] == "♦️" || oneCardArray[1] == "♥️") {
+        $("#playerCard3").addClass("cardRed")
+    }
     return oneCardArray;
 }
 
@@ -175,9 +175,6 @@ $('#hit').on("click", function () {
     $(".playerCards").append(`<div id = "playerCard3" class = "playerCard3"> <p>${oneCard[0]}</p> 
             <p class = "suits">${oneCard[1]}</p> 
             <p class = "value"> ${oneCard[0]}</p> </div>`);
-    if (oneCard[1] == "♦️" || oneCard[1] == "♥️") {
-        $("#playerCard3").addClass("cardRed")
-    }
     for (i = 0; i < moreCards.length; i++) {
         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
         if (card.addCards(moreCards) >= 22) {
@@ -197,6 +194,8 @@ $('#stand').on("click", function () {
 $('#new').on("click", function () {
     $('.playerCards').empty();
     $('.dealerCards').empty();
+    cardArray = card.getCard();
+    card.shuffleCards();
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
     card.showEachCards();
@@ -213,7 +212,6 @@ card.init = function () {
 
 // document ready
 $(function () {
-    card.init();
     $("#instructions").show()
     $("#main-div").hide()
 
@@ -221,6 +219,7 @@ $(function () {
         $("#instructions").hide()
         $("#main-div").show()
     })
+    card.init();
 });
 
 // need to do
