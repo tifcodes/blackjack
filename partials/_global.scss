@@ -1,4 +1,6 @@
 $background-color: #306b34;
+$secondary-color: #ffffff;
+$font-color: #000000;
 
 /* stripping style */
 body, 
@@ -19,7 +21,7 @@ a {
 
 html {
     font-size: 62.5%;
-    color: black;
+    color: $font-color;
 }
 
 img {
@@ -47,9 +49,12 @@ button {
     font-size: 3rem;
     text-transform: uppercase;
     border: none;
-    background: white;
+    background: $secondary-color;
     margin: 10px;
-    text-align: center;
     font-weight: bold;
+    justify-content: center;
+    &:hover {
+        opacity: .5;
+    }
 }
 

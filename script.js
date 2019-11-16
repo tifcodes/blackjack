@@ -22,7 +22,7 @@ card.getCard = function () {
 
 // shuffle deck of cards
 card.shuffleCards = function () {
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 700; i++) {
         let cardPlace1 = Math.floor(Math.random() * cardArray.length);
         let cardPlace2 = Math.floor(Math.random() * cardArray.length);
         [cardArray[cardPlace1], cardArray[cardPlace2]] = [cardArray[cardPlace2], cardArray[cardPlace1]]
@@ -74,6 +74,7 @@ card.showEachCards = function () {
     if (showDealerCardArray[3] == "♦️" || showDealerCardArray[3] == "♥️") {
         $("#dealerCard2").addClass("cardRed")
     }
+    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
 }
 
 // get value/weight for cards
@@ -86,8 +87,6 @@ card.getValue = function (card) {
         return parseInt(card);
     }
 }
-
-
 
 // add cards (banker and player)
 card.addCardFilter = function (array) {
@@ -115,9 +114,9 @@ card.cardDealerCheck = function (array) {
         $(".dealerCards").append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
         <p class = "suits">${oneDealerCard[1]}</p> 
         <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
-        if (oneDealerCard[1] == "♦️" || oneDealerCard[1] == "♥️") {
-            $("#dealerCard3").addClass("cardRed")
-        }
+        // if (oneDealerCard[1] == "♦️" || oneDealerCard[1] == "♥️") {
+        //     $("#dealerCard3").addClass("cardRed")
+        // }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
@@ -127,19 +126,24 @@ card.compareCards = function (num1, num2) {
     let compare1 = card.addCards(num1);
     let compare2 = card.addCards(num2);
     if (compare1 >= 22) {
-        $("#main-div").append(`<div class = "winner"> <p> dealer wins </p> </div>`);
+        alert("dealer win")
+        $("h2").append("<div> dealer win </div>");
         console.log(`player bust! ${compare1}`)
     } else if (compare2 >= 22) {
-        $("#main-div").append(`<div class = "winner"> <p> player wins </p> </div>`);
+        alert("player win")
+        $("h2").append("<div> player win </div>");
         console.log(`dealer bust! ${compare2}`)
     } else if (compare1 > compare2) {
-        $("#main-div").append(`<div class = "winner"> <p> player wins </p> </div>`);
+        alert("player win")
+        $("h2").append("<div> player win </div>");
         console.log(`player win! ${compare1}`)
     } else if (compare1 < compare2) {
-        $("#main-div").append(`<div class = "winner"> <p> dealer wins </p> </div>`);
+        alert("dealer win")
+        $("h2").append("<div> dealer win </div>");
         console.log(`dealer win ${compare2}`)
     } else if (compare1 == compare2) {
-        $("#main-div").append(`<div class = "winner"> <p> draw </p> </div>`);
+        alert("draw")
+        $("h2").append("<div> draw </div>");
         console.log("draw")
     }
 }
@@ -148,13 +152,16 @@ card.compareCardsBlackJack = function (num1, num2) {
     let blackjack1 = card.addCards(num1);
     let blackjack2 = card.addCards(num2);
     if (blackjack1 == 21) {
-        $("main-div").append(`<div class = "winner"> <p> player wins </p> </div>`);
+        alert("player win")
+        $("h2").append("player wins");
         console.log("player blackjack")
-    } else if (blackjack2 == 21) {
-        $("#main-div").append(`<div class = "winner"> <p> dealer wins </p> </div>`);
+    } else if (blackjack2 == 21) {  
+        alert("dealer win")
+        $("h2").append("dealer wins");
         console.log("dealer blackjack")
     } else if (blackjack1 == 21 && blackjack2 == 21) {
-        $("main-div").append(`<div class = "winner"> <p> draw </p> </div>`);
+        alert("draw")
+        $("h2").append("draw");
         console.log("draw")
     }
 }
@@ -182,7 +189,9 @@ $('#hit').on("click", function () {
     for (i = 0; i < moreCards.length; i++) {
         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
         if (card.addCards(moreCards) >= 22) {
-            console.log(`dealer win ${card.addCards(moreCards)}`)
+            alert("dealer win")
+            $(".flipCardInner").addClass("flipped");
+            return;
         }
         return moreCards;
     }
@@ -198,7 +207,6 @@ $('#new').on("click", function () {
     $('.dealerCards').empty();
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
-    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
     card.showEachCards();
 })
 
@@ -208,7 +216,6 @@ card.init = function () {
     card.shuffleCards();
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
-    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
     card.showEachCards();
 }
 
@@ -225,8 +232,7 @@ $(function () {
 });
 
 // need to do
-// hover
-// media queries
+
 // STRETCH GOALS
 // audio
 // add how many wins, loses and draws

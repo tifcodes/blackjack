@@ -162,7 +162,7 @@ a {
 
 html {
   font-size: 62.5%;
-  color: black; }
+  color: #000000; }
 
 img {
   max-width: 100%;
@@ -185,10 +185,14 @@ button {
   font-size: 3rem;
   text-transform: uppercase;
   border: none;
-  background: white;
+  background: #ffffff;
   margin: 10px;
-  text-align: center;
-  font-weight: bold; }
+  font-weight: bold;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  button:hover {
+    opacity: .5; }
 
 body {
   background: #306b34;
@@ -216,7 +220,7 @@ h1 {
   .instructions div {
     height: 75vh;
     width: 75vw;
-    background: white;
+    background: #ffffff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -238,7 +242,7 @@ h1 {
       font-size: 2rem;
       line-height: 1.6; }
     .instructions div button {
-      border: 3px solid black; }
+      border: 3px solid #000000; }
 
 .dealerCard1,
 .dealerCard2,
@@ -262,7 +266,7 @@ h1 {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background: white; }
+  background: #ffffff; }
 
 .dealerCards,
 .playerCards {
