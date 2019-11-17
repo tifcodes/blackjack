@@ -114,6 +114,9 @@ card.cardDealerCheck = function (array) {
         $(".dealerCards").append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
         <p class = "suits">${oneDealerCard[1]}</p> 
         <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
+        if (oneDealerCard[1] == "♦️" || oneDealerCard[1] == "♥️") {
+            $("#dealerCard3").addClass("cardRed")
+        }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
@@ -124,19 +127,15 @@ card.compareCards = function (num1, num2) {
     let compare2 = card.addCards(num2);
     if (compare1 >= 22) {
         alert("dealer win")
-        $("h2").append("<div> dealer win </div>");
     } else if (compare2 >= 22) {
         alert("player win")
-        $("h2").append("<div> player win </div>");
     } else if (compare1 > compare2) {
         alert("player win")
-        $("h2").append("<div> player win </div>");
     } else if (compare1 < compare2) {
         alert("dealer win")
-        $("h2").append("<div> dealer win </div>");
     } else if (compare1 == compare2) {
         alert("draw")
-        $("h2").append("<div> draw </div>");
+
     }
 }
 
@@ -145,13 +144,11 @@ card.compareCardsBlackJack = function (num1, num2) {
     let blackjack2 = card.addCards(num2);
     if (blackjack1 == 21) {
         alert("player win")
-        $("h2").append("player wins");
     } else if (blackjack2 == 21) {  
         alert("dealer win")
-        $("h2").append("dealer wins");
     } else if (blackjack1 == 21 && blackjack2 == 21) {
         alert("draw")
-        $("h2").append("draw");
+
     }
 }
 
@@ -222,13 +219,3 @@ $(function () {
     card.init();
 });
 
-// need to do
-
-// STRETCH GOALS
-// audio
-// add how many wins, loses and draws
-// betting
-// more deck of cards
-// add more players to the game
-// insurance
-// split

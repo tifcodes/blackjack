@@ -195,14 +195,7 @@ button {
     opacity: .5; }
 
 body {
-  background: #306b34;
-  position: relative; }
-
-h1 {
-  font-size: 6rem;
-  text-align: center;
-  text-transform: uppercase;
-  line-height: normal; }
+  background: #306b34; }
 
 .instructions {
   display: -webkit-box;
@@ -243,6 +236,20 @@ h1 {
       line-height: 1.6; }
     .instructions div button {
       border: 3px solid #000000; }
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: normal; }
+
+h2 {
+  font-size: 4.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: normal;
+  position: absolute;
+  z-index: -10; }
 
 .dealerCard1,
 .dealerCard2,
