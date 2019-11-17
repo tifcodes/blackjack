@@ -5,6 +5,8 @@ const cardValues = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q",
 let cardArray = new Array();
 let showPlayerCardArray = new Array();
 let showDealerCardArray = new Array();
+let playerWin = 0;
+let dealerWin = 0;
 
 card.getCard = function () {
     let cardArray = new Array();
@@ -74,7 +76,6 @@ card.showEachCards = function () {
     if (showDealerCardArray[3] == "♦️" || showDealerCardArray[3] == "♥️") {
         $("#dealerCard2").addClass("cardRed")
     }
-    card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
 }
 
 // get value/weight for cards
@@ -118,6 +119,9 @@ card.cardDealerCheck = function (array) {
             $("#dealerCard3").addClass("cardRed")
         }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
+        // if (card.addCards(oneCardConcat) < 17) {
+        //     card.cardDealerCheck(oneCardConcat);
+        // }
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
 }
@@ -125,28 +129,27 @@ card.cardDealerCheck = function (array) {
 card.compareCards = function (num1, num2) {
     let compare1 = card.addCards(num1);
     let compare2 = card.addCards(num2);
-    if (compare1 >= 22) {
+    if (compare1 == 21) {
+        alert("player blackjack win")
+        // $('#playerWins').text('Wins : ' + playerWin);
+    } else if (compare2 == 21) {  
+        alert("dealer blackjack win")
+        // $('#dealerWins').text('Wins : ' + dealerWin);
+    } else if (compare1 == 21 && compare2 == 21) {
+        alert("both blackjack draw")
+    } else if (compare1 >= 22) {
         alert("dealer win")
+        // $('#dealerWins').text('Wins : ' + dealerWin);
     } else if (compare2 >= 22) {
         alert("player win")
+        // $('#playerWins').text('Wins : ' + playerWin);
     } else if (compare1 > compare2) {
         alert("player win")
+        // $('#playerWins').text('Wins : ' + playerWin);
     } else if (compare1 < compare2) {
         alert("dealer win")
+        // $('#dealerWins').text('Wins : ' + dealerWin);
     } else if (compare1 == compare2) {
-        alert("draw")
-
-    }
-}
-
-card.compareCardsBlackJack = function (num1, num2) {
-    let blackjack1 = card.addCards(num1);
-    let blackjack2 = card.addCards(num2);
-    if (blackjack1 == 21) {
-        alert("player win")
-    } else if (blackjack2 == 21) {  
-        alert("dealer win")
-    } else if (blackjack1 == 21 && blackjack2 == 21) {
         alert("draw")
 
     }
@@ -186,6 +189,7 @@ $('#hit').on("click", function () {
 $('#stand').on("click", function () {
     $(".flipCardInner").addClass("flipped");
     card.cardDealerCheck(showDealerCardArray)
+    // card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
 })
 
 $('#new').on("click", function () {
@@ -219,3 +223,13 @@ $(function () {
     card.init();
 });
 
+// need to do
+
+// STRETCH GOALS
+// audio
+// add how many wins, loses and draws
+// betting
+// more deck of cards
+// add more players to the game
+// insurance
+// split
