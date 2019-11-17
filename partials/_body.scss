@@ -3,28 +3,23 @@ body {
 }
 
 .instructions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include displayFlex;
     align-items: center;
     height: 100vh;
     div {
+        @include displayFlex;
+        align-items: center;
         height: 75vh;
         width: 75vw;
         background: $secondary-color;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         border-radius: 5%;
         h3 {
-            font-size: 4rem;
-            text-transform: uppercase;
+            @include fontSize(4rem);
             text-align: center;
         }
         li {
-            font-size: 2rem;
-            line-height: 1.6;
+            @include fontSize(2rem);
+            text-transform: none;
         }
         button {
             border: 3px solid $font-color;
@@ -33,8 +28,22 @@ body {
 }
 
 h1 {
-    font-size: 5rem;
+    @include fontSize(5rem);
     text-align: center;
-    text-transform: uppercase;
     line-height: normal;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    @include fontSize(3rem);
+    border: none;
+    background: $secondary-color;
+    margin: 5px 10px;
+    &:hover {
+        opacity: .5;
+    }
+    border-radius: 5%;
 }

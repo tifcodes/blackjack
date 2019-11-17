@@ -4,27 +4,22 @@
 .playerCard1,
 .playerCard2,
 .playerCard3{
-    height: 230px;
-    width: 165px;
+    @include cardHeightWidth;
+    @include displayFlex;
+    justify-content: space-between;
     margin: 5px 10px;
     padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
     background: $secondary-color;
-    border-radius: 5%;
 }
 
 .dealerCards,
 .playerCards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 4rem;
+    @include displayFlex;
+    flex-direction: row;
+    @include fontSize(4rem);
     .suits {
         align-self: center;
-        font-size: 6rem;
+        @include fontSize(6rem);
     }
     .value {
         align-self: end;
@@ -33,36 +28,32 @@
 }
 
 .cardRed {
-    color: red;
+    color: $card-color;
 }
 
 .dealerWins,
 .playerWins {
     text-align: center;
-    font-size: 2.2rem;
+    @include fontSize(2.2rem);   
     color: $accent-color;
 }
 
 // flipped card
 .flipCard {
+    @include cardHeightWidth;
     background-color: transparent;
-    height: 230px;
-    width: 165px;
     margin: 5px;
-    border-radius: 5%;
 }
 
 .flipCardInner {
     position: relative;
-    width: 100%;
     height: 100%;
     transition: transform 0.3s;
     transform-style: preserve-3d;
 }
 
 .flipCardFront {
-    height: 230px;
-    width: 165px;
+    @include cardHeightWidth;
     img {
         border-radius: 5%;
     }
@@ -71,7 +62,6 @@
 .flipCardFront, .flipCardBack {
     position: absolute;
     width: 100%;
-    height: 100%;
     backface-visibility: hidden;
 }
 

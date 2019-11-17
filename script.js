@@ -132,6 +132,7 @@ card.cardDealerCheck = function (array) {
     }
 }
 
+// comparing cards and seeing which is higher
 card.compareCards = function (num1, num2) {
     let compare1 = card.addCards(num1);
     let compare2 = card.addCards(num2);
@@ -230,9 +231,7 @@ $(function () {
 
 // STRETCH GOALS
 // audio
-// add how many wins, loses and draws
 // betting
-// more deck of cards
 // add more players to the game
 // insurance
 // split
