@@ -119,6 +119,15 @@ card.cardDealerCheck = function (array) {
             $("#dealerCard3").addClass("cardRed")
         }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
+        if (card.addCards(oneCardConcat) < 17) {
+            oneDealerCard = card.showOneCard();
+            $(".dealerCards").append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
+        <p class = "suits">${oneDealerCard[1]}</p> 
+        <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
+            if (oneDealerCard[1] == "♦️" || oneDealerCard[1] == "♥️") {
+                $("#dealerCard3").addClass("cardRed")
+            }
+        }
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
 }
@@ -172,7 +181,6 @@ $('#hit').on("click", function () {
             $("#stand").hide();
             $("#hit").hide();
             $(".flipCardInner").addClass("flipped");
-            return;
         }
         return moreCards;
     }
