@@ -1,6 +1,7 @@
 $background-color: #306b34;
 $secondary-color: #ffffff;
 $font-color: #000000;
+$accent-color: yellow;
 
 /* stripping style */
 body, 
@@ -50,11 +51,12 @@ button {
     text-transform: uppercase;
     border: none;
     background: $secondary-color;
-    margin: 10px;
+    margin: 5px 10px;
     font-weight: bold;
     justify-content: center;
     &:hover {
         opacity: .5;
     }
+    border-radius: 5%;
 }
 

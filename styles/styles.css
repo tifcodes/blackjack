@@ -186,11 +186,12 @@ button {
   text-transform: uppercase;
   border: none;
   background: #ffffff;
-  margin: 10px;
+  margin: 5px 10px;
   font-weight: bold;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  border-radius: 5%; }
   button:hover {
     opacity: .5; }
 
@@ -226,7 +227,8 @@ body {
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    border-radius: 5%; }
     .instructions div h3 {
       font-size: 4rem;
       text-transform: uppercase;
@@ -238,18 +240,10 @@ body {
       border: 3px solid #000000; }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   text-align: center;
   text-transform: uppercase;
   line-height: normal; }
-
-h2 {
-  font-size: 4.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  line-height: normal;
-  position: absolute;
-  z-index: -10; }
 
 .dealerCard1,
 .dealerCard2,
@@ -257,9 +251,9 @@ h2 {
 .playerCard1,
 .playerCard2,
 .playerCard3 {
-  height: 240px;
-  width: 170px;
-  margin: 10px;
+  height: 230px;
+  width: 165px;
+  margin: 5px 10px;
   padding-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,7 +267,8 @@ h2 {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background: #ffffff; }
+  background: #ffffff;
+  border-radius: 5%; }
 
 .dealerCards,
 .playerCards {
@@ -291,7 +286,7 @@ h2 {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
-    font-size: 7rem; }
+    font-size: 6rem; }
   .dealerCards .value,
   .playerCards .value {
     -ms-flex-item-align: end;
@@ -302,11 +297,18 @@ h2 {
 .cardRed {
   color: red; }
 
+.dealerWins,
+.playerWins {
+  text-align: center;
+  font-size: 2.2rem;
+  color: yellow; }
+
 .flipCard {
   background-color: transparent;
-  height: 240px;
-  width: 170px;
-  margin: 10px; }
+  height: 230px;
+  width: 165px;
+  margin: 5px;
+  border-radius: 5%; }
 
 .flipCardInner {
   position: relative;
@@ -321,8 +323,10 @@ h2 {
   transform-style: preserve-3d; }
 
 .flipCardFront {
-  height: 240px;
-  width: 170px; }
+  height: 230px;
+  width: 165px; }
+  .flipCardFront img {
+    border-radius: 5%; }
 
 .flipCardFront, .flipCardBack {
   position: absolute;
@@ -334,15 +338,11 @@ h2 {
 .flipCardBack {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  margin: -10px 10px 10px 10px; }
+  margin: -5px 10px 10px 10px; }
 
 .flipped {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg); }
-
-@media (max-width: 1205px) {
-  .wrapper {
-    width: 90%; } }
 
 @media (max-width: 1075px) {
   .wrapper {

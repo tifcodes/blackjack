@@ -119,9 +119,6 @@ card.cardDealerCheck = function (array) {
             $("#dealerCard3").addClass("cardRed")
         }
         oneCardConcat = showDealerCardArray.concat(oneDealerCard);
-        // if (card.addCards(oneCardConcat) < 17) {
-        //     card.cardDealerCheck(oneCardConcat);
-        // }
         card.compareCards(showPlayerCardArray, oneCardConcat)
     }
 }
@@ -130,28 +127,20 @@ card.compareCards = function (num1, num2) {
     let compare1 = card.addCards(num1);
     let compare2 = card.addCards(num2);
     if (compare1 == 21) {
-        alert("player blackjack win")
-        // $('#playerWins').text('Wins : ' + playerWin);
+        playerWin += 1;
+        $('#playerWins').text('Wins : ' + playerWin);
     } else if (compare2 == 21) {  
-        alert("dealer blackjack win")
-        // $('#dealerWins').text('Wins : ' + dealerWin);
-    } else if (compare1 == 21 && compare2 == 21) {
-        alert("both blackjack draw")
-    } else if (compare1 >= 22) {
-        alert("dealer win")
-        // $('#dealerWins').text('Wins : ' + dealerWin);
+        dealerWin += 1;
+        $('#dealerWins').text('Wins : ' + dealerWin);
     } else if (compare2 >= 22) {
-        alert("player win")
-        // $('#playerWins').text('Wins : ' + playerWin);
+        playerWin += 1;
+        $('#playerWins').text('Wins : ' + playerWin);
     } else if (compare1 > compare2) {
-        alert("player win")
-        // $('#playerWins').text('Wins : ' + playerWin);
+        playerWin += 1;
+        $('#playerWins').text('Wins : ' + playerWin);
     } else if (compare1 < compare2) {
-        alert("dealer win")
-        // $('#dealerWins').text('Wins : ' + dealerWin);
-    } else if (compare1 == compare2) {
-        alert("draw")
-
+        dealerWin += 1;
+        $('#dealerWins').text('Wins : ' + dealerWin);
     }
 }
 
@@ -178,7 +167,10 @@ $('#hit').on("click", function () {
     for (i = 0; i < moreCards.length; i++) {
         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
         if (card.addCards(moreCards) >= 22) {
-            alert("dealer win")
+            dealerWin += 1;
+            $('#dealerWins').text('Wins : ' + dealerWin);
+            $("#stand").hide();
+            $("#hit").hide();
             $(".flipCardInner").addClass("flipped");
             return;
         }
@@ -188,8 +180,9 @@ $('#hit').on("click", function () {
 
 $('#stand').on("click", function () {
     $(".flipCardInner").addClass("flipped");
-    card.cardDealerCheck(showDealerCardArray)
-    // card.compareCardsBlackJack(showPlayerCardArray, showDealerCardArray)
+    card.cardDealerCheck(showDealerCardArray);
+    $("#stand").hide();
+    $("#hit").hide();
 })
 
 $('#new').on("click", function () {
@@ -200,6 +193,8 @@ $('#new').on("click", function () {
     showPlayerCardArray = card.showCards();
     showDealerCardArray = card.showCards();
     card.showEachCards();
+    $("#stand").show();
+    $("#hit").show();
 })
 
 // init
