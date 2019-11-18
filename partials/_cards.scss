@@ -22,7 +22,7 @@
         @include fontSize(6rem);
     }
     .value {
-        align-self: end;
+        align-self: flex-end;
         padding-right: 10px;
     }
 }
