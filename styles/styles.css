@@ -393,7 +393,8 @@ button {
   .flipCard {
     height: 220px;
     width: 140px;
-    margin: 5px; }
+    margin: 5px;
+    padding-left: 8px; }
   .dealerCards,
   .playerCards {
     font-size: 3rem;
@@ -402,6 +403,9 @@ button {
     .playerCards .suits {
       font-size: 4.5rem;
       text-transform: uppercase; }
+    .dealerCards .value,
+    .playerCards .value {
+      padding-right: 8px; }
   .flipCardFront {
     margin: 0px 5px 5px 0; }
   .flipCardBack {

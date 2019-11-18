@@ -53,6 +53,7 @@
         height: 220px;
         width: 140px;
         margin: 5px;
+        padding-left: 8px;
     }
 
     .dealerCards,
@@ -60,6 +61,9 @@
         @include fontSize(3rem);
         .suits {
             @include fontSize(4.5rem);
+        }
+        .value {
+        padding-right: 8px;
         }
     }
 
