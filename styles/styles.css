@@ -402,6 +402,11 @@ button {
     .playerCards .suits {
       font-size: 4.5rem;
       text-transform: uppercase; }
+    .dealerCards .value,
+    .playerCards .value {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
   .flipCardFront {
     margin: 0px 5px 5px 0; }
   .flipCardBack {
