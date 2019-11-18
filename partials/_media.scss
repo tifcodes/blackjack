@@ -50,7 +50,7 @@
 
     .dealerCards,
     .playerCards {
-        @include fontSize(3.5rem);
+        @include fontSize(3.3rem);
         .suits {
             @include fontSize(4.0rem);
         }
