@@ -396,7 +396,7 @@ button {
     text-transform: uppercase; }
     .dealerCards .suits,
     .playerCards .suits {
-      font-size: 4rem;
+      font-size: 4.5rem;
       text-transform: uppercase; }
   .flipCardFront {
     margin: 0px 5px 5px 0; }
