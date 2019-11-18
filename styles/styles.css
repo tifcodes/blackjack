@@ -391,16 +391,16 @@ button {
   .dealerCard3,
   .flipCardFront,
   .flipCard {
-    height: 220px;
-    width: 140px;
+    height: 200px;
+    width: 145px;
     margin: 5px; }
   .dealerCards,
   .playerCards {
-    font-size: 2rem;
+    font-size: 3rem;
     text-transform: uppercase; }
     .dealerCards .suits,
     .playerCards .suits {
-      font-size: 3rem;
+      font-size: 4.5rem;
       text-transform: uppercase; }
   .flipCardFront {
     margin: 0px 5px 5px 0; }

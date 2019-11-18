@@ -50,16 +50,16 @@
     .dealerCard3,
     .flipCardFront,
     .flipCard {
-        height: 220px;
-        width: 140px;
+        height: 200px;
+        width: 145px;
         margin: 5px;
     }
 
     .dealerCards,
     .playerCards {
-        @include fontSize(2rem);
+        @include fontSize(3rem);
         .suits {
-            @include fontSize(3rem);
+            @include fontSize(4.5rem);
         }
     }
 
