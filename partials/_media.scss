@@ -10,11 +10,19 @@
         }
     }
 }
-
-@media (max-width: 625px) {
-    .instructions {
+@media (max-width: 765px) {
+    .instructions{
         div {
-            height: 100vh;
+        height: 100vh;
+    }
+}
+}
+
+@media (max-width: 765px) {
+    .instructions{
+        div {
+            height: 125vh;
+            padding: 25px;
         }
     }
 }
@@ -25,13 +33,12 @@
     }
     .instructions {
         div {
-            height: 100vh;
-            padding: 25px;
+            padding: 15px;
             h3 {
-                @include fontSize(3.3rem);
+                @include fontSize(3.2rem);
             }
             li {
-                @include fontSize(1.8rem);
+                @include fontSize(1.6rem);
             }
         }
     }
