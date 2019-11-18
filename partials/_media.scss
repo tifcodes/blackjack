@@ -52,7 +52,7 @@
     .playerCards {
         @include fontSize(3.5rem);
         .suits {
-            @include fontSize(5.5rem);
+            @include fontSize(5.0rem);
         }
     }
 
