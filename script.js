@@ -226,12 +226,3 @@ $(function () {
     })
     card.init();
 });
-
-// need to do
-
-// STRETCH GOALS
-// audio
-// betting
-// add more players to the game
-// insurance
-// split
