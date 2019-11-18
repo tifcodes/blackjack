@@ -241,8 +241,7 @@ button {
   text-transform: uppercase;
   border: none;
   background: #ffffff;
-  margin: 5px 10px;
-  border-radius: 5%; }
+  margin: 5px 10px; }
   button:hover {
     opacity: .5; }
 
