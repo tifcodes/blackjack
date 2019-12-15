@@ -1,11 +1,12 @@
 body {
     background: $background-color;
+    min-height: 100vh;
 }
 
 .instructions {
     @include displayFlex;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     div {
         @include displayFlex;
         align-items: center;

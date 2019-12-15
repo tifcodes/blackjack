@@ -177,7 +177,8 @@ body {
   line-height: 1.6; }
 
 body {
-  background: #306b34; }
+  background: #306b34;
+  min-height: 100vh; }
 
 .instructions {
   display: -webkit-box;
@@ -195,7 +196,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 100vh; }
+  min-height: 100vh; }
   .instructions div {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -410,3 +411,8 @@ button {
     margin: 0px 5px 5px 0; }
   .flipCardBack {
     margin: -5px 5px 5px 5px; } }
+
+footer {
+  background: white;
+  text-align: center;
+  font-size: 2rem; }
