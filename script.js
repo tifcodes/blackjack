@@ -194,10 +194,13 @@ card.showOneCard = function() {
 $('#hit').on('click', function() {
         const moreCards = showPlayerCardArray;
         oneCard = card.showOneCard();
-        $('.playerCards').append(`<div id = "playerCard3" class = "playerCard3"> <p>${oneCard[0]}</p> 
+        $('.playerCards').append(
+                `<div id = "playerCard3" class = "playerCard3"> 
+            <p>${oneCard[0]}</p> 
             <p class = "suits">${oneCard[1]}</p> 
-            <p class = "value"> ${oneCard[0]}</p> </div>`);
-        for (i = 0; i < moreCards.length; i++) {
+            <p class = "value"> ${oneCard[0]}</p> </div>`
+        );
+        for (let i = 0; i < moreCards.length; i++) {
                 oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
                 $('#playerTotal').text(`Total : ${card.addCards(moreCards)}`);
                 if (card.addCards(moreCards) >= 22) {
