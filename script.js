@@ -154,7 +154,7 @@ card.cardDealerCheck = function(array) {
         }
 };
 
-// comparing cards and seeing which is higher
+// comparing cards between player and dealer and seeing which is higher
 card.compareCards = function(num1, num2) {
         const compare1 = card.addCards(num1);
         const compare2 = card.addCards(num2);
