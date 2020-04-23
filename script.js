@@ -109,15 +109,15 @@ card.getValue = function(card) {
         return parseInt(card);
 };
 
-// add cards (banker and player)
+// taking out just the number (not including the suit)
 card.addCardFilter = function(array) {
-        // taking out just the number (not including the suit)
         const arrayFilter = array.filter(function(v, i) {
                 return i % 2 == 0;
         });
         return arrayFilter;
 };
 
+// add cards (banker and player)
 card.addCards = function(array) {
         let sum = 0;
         arrayFilter = card.addCardFilter(array);
