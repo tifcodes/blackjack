@@ -111,6 +111,7 @@ card.getValue = function(card) {
 
 // add cards (banker and player)
 card.addCardFilter = function(array) {
+        // taking out just the number (not including the suit)
         const arrayFilter = array.filter(function(v, i) {
                 return i % 2 == 0;
         });
