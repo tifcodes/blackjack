@@ -2,18 +2,24 @@
 const card = {};
 const cardSuits = ['♦️', '♥️', '♠️', '♣️'];
 const cardValues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+// card array
 let cardArray = new Array();
 let showPlayerCardArray = new Array();
 let showDealerCardArray = new Array();
+
+// total wins for the player and dealer
 let playerWin = 0;
 let dealerWin = 0;
 
+// create a card
 card.getCard = function() {
-        const cardArray = new Array();
-
         for (let s = 0; s < cardSuits.length; s++) {
                 for (let v = 0; v < cardValues.length; v++) {
-                        const card = { Value: cardValues[v], Suit: cardSuits[s] };
+                        const card = {
+                                Value: cardValues[v],
+                                Suit: cardSuits[s],
+                        };
                         cardArray.push(card);
                 }
         }
@@ -41,27 +47,43 @@ card.showCards = function() {
         return cardValueArray;
 };
 
+// show each card for the player and one card of the dealer
 card.showEachCards = function() {
-        $('.playerCards').append(`<div id = "playerCard1" class = "playerCard1"> <p>${showPlayerCardArray[0]}</p> 
-    <p class = "suits">${showPlayerCardArray[1]}</p> 
-    <p class = "value"> ${showPlayerCardArray[0]}</p> </div>`);
-        $('.playerCards').append(`<div id = "playerCard2" class = "playerCard2"> <p>${showPlayerCardArray[2]}</p> 
-    <p class = "suits">${showPlayerCardArray[3]}</p> 
-    <p class = "value"> ${showPlayerCardArray[2]}</p> </div>`);
-        $('.dealerCards').append(`<div id = "dealerCard1" class = "dealerCard1"> <p>${showDealerCardArray[0]}</p> 
-    <p class = "suits">${showDealerCardArray[1]}</p> 
-    <p class = "value"> ${showDealerCardArray[0]}</p> </div>`);
-        $('.dealerCards').append(`<div class="flipCard"> <div class="flipCardInner">
-    <div class="flipCardFront">
-        <img src="./asset/playingCardBack.png" alt="bicycle playing card back">
-    </div>
-    <div class="flipCardBack">
-        <div id = "dealerCard2" class = "dealerCard2"><p>${showDealerCardArray[2]}</p> 
-    <p class = "suits">${showDealerCardArray[3]}</p> 
-    <p class = "value"> ${showDealerCardArray[2]}</p> </div>
-    </div>
-    </div>
-</div> `);
+        // show the total of the player cards
+        $('#playerTotal').text(`Total : ${card.addCards(showPlayerCardArray)}`);
+
+        $('.playerCards').append(
+                `<div id = "playerCard1" class = "playerCard1"> 
+        <p>${showPlayerCardArray[0]}</p> 
+        <p class = "suits">${showPlayerCardArray[1]}</p> 
+        <p class = "value"> ${showPlayerCardArray[0]}</p> 
+        </div>`
+        );
+        $('.playerCards').append(
+                `<div id = "playerCard2" class = "playerCard2"> <p>${showPlayerCardArray[2]}</p> 
+            <p class = "suits">${showPlayerCardArray[3]}</p> 
+            <p class = "value"> ${showPlayerCardArray[2]}</p> </div>`
+        );
+        $('.dealerCards').append(
+                `<div id = "dealerCard1" class = "dealerCard1"> <p>${showDealerCardArray[0]}</p> 
+            <p class = "suits">${showDealerCardArray[1]}</p> 
+            <p class = "value"> ${showDealerCardArray[0]}</p> </div>`
+        );
+        $('.dealerCards').append(
+                `<div class="flipCard"> <div class="flipCardInner">
+            <div class="flipCardFront">
+                <img src="./asset/playingCardBack.png" alt="bicycle playing card back">
+            </div>
+            <div class="flipCardBack">
+        
+            <div id = "dealerCard2" class = "dealerCard2">
+            <p>${showDealerCardArray[2]}</p> 
+                <p class = "suits">${showDealerCardArray[3]}</p> 
+                <p class = "value"> ${showDealerCardArray[2]}</p> </div>
+                </div>
+                </div>
+            </div> `
+        );
         if (showPlayerCardArray[1] == '♦️' || showPlayerCardArray[1] == '♥️') {
                 $('#playerCard1').addClass('cardRed');
         }
@@ -192,23 +214,25 @@ $('#hit').on('click', function() {
 $('#stand').on('click', function() {
         $('.flipCardInner').addClass('flipped');
         card.cardDealerCheck(showDealerCardArray);
+        // if the player hits stand hit the other 2 buttons
         $('#stand').hide();
         $('#hit').hide();
 });
 
 $('#new').on('click', function() {
+        // remove the cards
         $('.playerCards').empty();
         $('.dealerCards').empty();
+
+        // get the total back to 0;
         $('#playerTotal').text(`Total: 0`);
         $('#dealerTotal').text(`Total: 0`);
-        cardArray = card.getCard();
-        card.shuffleCards();
-        showPlayerCardArray = card.showCards();
-        showDealerCardArray = card.showCards();
-        card.showEachCards();
-        $('#playerTotal').text(`Total : ${card.addCards(showPlayerCardArray)}`);
+
+        // if the player hits new game add back the button
         $('#stand').show();
         $('#hit').show();
+
+        card.init();
 });
 
 // init
@@ -218,10 +242,9 @@ card.init = function() {
         showPlayerCardArray = card.showCards();
         showDealerCardArray = card.showCards();
         card.showEachCards();
-        $('#playerTotal').text(`Total : ${card.addCards(showPlayerCardArray)}`);
 };
 
-// document ready
+// document ready (show and hide the instructions)
 $(function() {
         $('#instructions').show();
         $('#main-div').hide();
@@ -230,5 +253,6 @@ $(function() {
                 $('#instructions').hide();
                 $('#main-div').show();
         });
+
         card.init();
 });
