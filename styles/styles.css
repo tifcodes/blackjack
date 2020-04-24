@@ -1,136 +1,170 @@
+@charset "UTF-8";
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
-  display: block; }
+  display: block;
+}
 
 audio, canvas, video {
-  display: inline-block; }
+  display: inline-block;
+}
 
 audio:not([controls]) {
   display: none;
-  height: 0; }
+  height: 0;
+}
 
 [hidden] {
-  display: none; }
+  display: none;
+}
 
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  -ms-text-size-adjust: 100%;
+}
 
 a:focus {
-  outline: thin dotted; }
+  outline: thin dotted;
+}
 
 a:active, a:hover {
-  outline: 0; }
+  outline: 0;
+}
 
 h1 {
-  font-size: 2em; }
+  font-size: 2em;
+}
 
 abbr[title] {
-  border-bottom: 1px dotted; }
+  border-bottom: 1px dotted;
+}
 
 b, strong {
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 dfn {
-  font-style: italic; }
+  font-style: italic;
+}
 
 mark {
   background: #ff0;
-  color: #000; }
+  color: #000;
+}
 
 code, kbd, pre, samp {
   font-family: monospace, serif;
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 pre {
   white-space: pre-wrap;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
 q {
-  quotes: \201C \201D \2018 \2019; }
+  quotes: “”‘’;
+}
 
 small {
-  font-size: 80%; }
+  font-size: 80%;
+}
 
 sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 sup {
-  top: -.5em; }
+  top: -0.5em;
+}
 
 sub {
-  bottom: -.25em; }
+  bottom: -0.25em;
+}
 
 img {
-  border: 0; }
+  border: 0;
+}
 
 svg:not(:root) {
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: .35em .625em .75em; }
+  padding: 0.35em 0.625em 0.75em;
+}
 
 button, input, select, textarea {
   font-family: inherit;
   font-size: 100%;
-  margin: 0; }
+  margin: 0;
+}
 
 button, input {
-  line-height: normal; }
+  line-height: normal;
+}
 
 button, html input[type=button], input[type=reset], input[type=submit] {
   -webkit-appearance: button;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 button[disabled], input[disabled] {
-  cursor: default; }
+  cursor: default;
+}
 
 input[type=checkbox], input[type=radio] {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0; }
+          box-sizing: border-box;
+  padding: 0;
+}
 
 input[type=search] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
-  box-sizing: content-box; }
+  box-sizing: content-box;
+}
 
 input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
 
 textarea {
   overflow: auto;
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 body, figure {
-  margin: 0; }
+  margin: 0;
+}
 
 legend, button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .clearfix:after {
   visibility: hidden;
   display: block;
   font-size: 0;
-  content: '';
+  content: "";
   clear: both;
-  height: 0; }
+  height: 0;
+}
 
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 .visuallyHidden:not(:focus):not(:active) {
   position: absolute;
@@ -141,9 +175,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   padding: 0;
   white-space: nowrap;
   -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
+          clip-path: inset(100%);
   clip: rect(0 0 0);
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 /* stripping style */
 body,
@@ -153,98 +188,117 @@ h3,
 ul,
 p {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 html {
   font-size: 62.5%;
-  color: #000000; }
+  color: #000000;
+}
 
 img {
   max-width: 100%;
   height: 100%;
-  display: block; }
+  display: block;
+}
 
 .wrapper {
   max-width: 1200px;
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 body {
-  font-family: 'Russo One', sans-serif;
-  line-height: 1.6; }
+  font-family: "Russo One", sans-serif;
+  line-height: 1.6;
+}
 
 body {
   background: #306b34;
-  min-height: 100vh; }
+}
 
 .instructions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-height: 100vh; }
-  .instructions div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 75vh;
-    width: 75vw;
-    background: #ffffff;
-    border-radius: 5%; }
-    .instructions div h3 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      text-align: center; }
-    .instructions div li {
-      font-size: 2rem;
-      text-transform: uppercase;
-      text-transform: none; }
-    .instructions div button {
-      border: 3px solid #000000; }
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+}
+.instructions div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 75vh;
+  width: 75vw;
+  background: #ffffff;
+  border-radius: 5%;
+}
+.instructions div h3 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.instructions div li {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-transform: none;
+}
+.instructions div button {
+  border: 3px solid #000000;
+}
 
 h1 {
   font-size: 5rem;
   text-transform: uppercase;
   text-align: center;
-  line-height: normal; }
+  line-height: normal;
+}
 
 .buttons {
-  text-align: center; }
+  text-align: center;
+}
 
 button {
   font-size: 3rem;
   text-transform: uppercase;
   border: none;
   background: #ffffff;
-  margin: 5px 10px; }
-  button:hover {
-    opacity: .5; }
+  margin: 5px 10px;
+}
+button:hover {
+  opacity: 0.5;
+}
+
+.mainDiv {
+  min-height: 95vh;
+}
 
 .dealerCard1,
 .dealerCard2,
@@ -259,20 +313,21 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 5px 10px;
   padding-left: 10px;
-  background: #ffffff; }
+  background: #ffffff;
+}
 
 .dealerCards,
 .playerCards {
@@ -280,47 +335,53 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-direction: row;
-  flex-direction: row;
+      flex-direction: row;
   font-size: 4rem;
-  text-transform: uppercase; }
-  .dealerCards .suits,
-  .playerCards .suits {
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-    font-size: 6rem;
-    text-transform: uppercase; }
-  .dealerCards .value,
-  .playerCards .value {
-    -ms-flex-item-align: end;
-    align-self: flex-end;
-    padding-right: 10px; }
+  text-transform: uppercase;
+}
+.dealerCards .suits,
+.playerCards .suits {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+.dealerCards .value,
+.playerCards .value {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding-right: 10px;
+}
 
 .cardRed {
-  color: red; }
+  color: red;
+}
 
 .dealerWins,
 .playerWins {
   text-align: center;
   font-size: 2.2rem;
   text-transform: uppercase;
-  color: yellow; }
+  color: yellow;
+}
 
 .flipCard {
   height: 230px;
   width: 165px;
   border-radius: 5%;
   background-color: transparent;
-  margin: 5px; }
+  margin: 5px;
+}
 
 .flipCardInner {
   position: relative;
@@ -331,88 +392,128 @@ button {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
   -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d; }
+          transform-style: preserve-3d;
+}
 
 .flipCardFront {
   height: 230px;
   width: 165px;
-  border-radius: 5%; }
-  .flipCardFront img {
-    border-radius: 5%; }
+  border-radius: 5%;
+}
+.flipCardFront img {
+  border-radius: 5%;
+}
 
 .flipCardFront, .flipCardBack {
   position: absolute;
   width: 100%;
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
+          backface-visibility: hidden;
+}
 
 .flipCardBack {
   -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  margin: -5px 10px 10px 10px; }
+          transform: rotateY(180deg);
+  margin: -5px 10px 10px 10px;
+}
 
 .flipped {
   -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg); }
+          transform: rotateY(180deg);
+}
 
 @media (max-width: 1075px) {
   .wrapper {
-    width: 100%; }
+    width: 100%;
+  }
+
   .instructions div {
     width: 100vw;
-    padding: 50px; } }
-
+    padding: 50px;
+  }
+}
 @media (max-width: 765px) {
   .instructions div {
-    height: 100vh; } }
-
+    height: 100vh;
+  }
+}
 @media (max-width: 765px) {
   .instructions div {
     height: 125vh;
-    padding: 25px; } }
-
+    padding: 25px;
+  }
+}
 @media (max-width: 465px) {
   h1 {
     font-size: 4.5rem;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+  }
+
   .instructions div {
-    padding: 15px; }
-    .instructions div h3 {
-      font-size: 3.2rem;
-      text-transform: uppercase; }
-    .instructions div li {
-      font-size: 1.6rem;
-      text-transform: uppercase; }
+    padding: 15px;
+  }
+  .instructions div h3 {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+  }
+  .instructions div li {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
   .playerCard1,
-  .playerCard2,
-  .playerCard3,
-  .dealerCard1,
-  .dealerCard2,
-  .dealerCard3,
-  .flipCardFront,
-  .flipCard {
+.playerCard2,
+.playerCard3,
+.dealerCard1,
+.dealerCard2,
+.dealerCard3,
+.flipCardFront,
+.flipCard {
     height: 200px;
     width: 145px;
-    margin: 5px; }
-  .dealerCards,
-  .playerCards {
-    font-size: 3rem;
-    text-transform: uppercase; }
-    .dealerCards .suits,
-    .playerCards .suits {
-      font-size: 4.5rem;
-      text-transform: uppercase; }
-    .dealerCards .value,
-    .playerCards .value {
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
-      justify-content: flex-end; }
-  .flipCardFront {
-    margin: 0px 5px 5px 0; }
-  .flipCardBack {
-    margin: -5px 5px 5px 5px; } }
+    margin: 5px;
+  }
 
+  .dealerCards,
+.playerCards {
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+  .dealerCards .suits,
+.playerCards .suits {
+    font-size: 4.5rem;
+    text-transform: uppercase;
+  }
+  .dealerCards .value,
+.playerCards .value {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .flipCardFront {
+    margin: 0px 5px 5px 0;
+  }
+
+  .flipCardBack {
+    margin: -5px 5px 5px 5px;
+  }
+}
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: white;
   text-align: center;
-  font-size: 2rem; }
+  font-size: 2rem;
+  height: 5vh;
+}

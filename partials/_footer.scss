@@ -1,5 +1,7 @@
 footer{
+    @include displayFlex;
     background: white;
     text-align: center;
     font-size: 2rem;
+    height: 5vh;
 }
