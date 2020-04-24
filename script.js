@@ -141,6 +141,7 @@ card.cardDealerCheck = function(array) {
                 if (oneCard[1] == '♦️' || oneCard[1] == '♥️') {
                         $('#dealerCard3').addClass('cardRed');
                 }
+                $('#dealerTotal').text(`Total : ${card.addCards(moreCards)}`);
                 for (let i = 0; i < moreCards.length; i++) {
                         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
                         $('#dealerTotal').text(`Total : ${card.addCards(moreCards)}`);
@@ -154,6 +155,7 @@ card.cardDealerCheck = function(array) {
                         }
                         return moreCards;
                 }
+                card.compareCards(moreCards, showPlayerCardArray);
         }
 };
 
@@ -203,6 +205,7 @@ $('#hit').on('click', function() {
             <p class = "suits">${oneCard[1]}</p> 
             <p class = "value"> ${oneCard[0]}</p> </div>`
         );
+        $('#playerTotal').text(`Total : ${card.addCards(moreCards)}`);
         for (let i = 0; i < moreCards.length; i++) {
                 oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
                 $('#playerTotal').text(`Total : ${card.addCards(moreCards)}`);
@@ -216,6 +219,7 @@ $('#hit').on('click', function() {
                 }
                 return moreCards;
         }
+        card.compareCards(moreCards, showPlayerCardArray);
 });
 
 $('#stand').on('click', function() {
