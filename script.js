@@ -132,25 +132,28 @@ card.cardDealerCheck = function(array) {
         if (card.addCards(array) >= 17) {
                 card.compareCards(showPlayerCardArray, showDealerCardArray);
         } else if (card.addCards(array) < 17) {
-                oneDealerCard = card.showOneCard();
-                $('.dealerCards').append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
-        <p class = "suits">${oneDealerCard[1]}</p> 
-        <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
-                if (oneDealerCard[1] == '♦️' || oneDealerCard[1] == '♥️') {
+                const moreCards = showDealerCardArray;
+                oneCard = card.showOneCard();
+                $('.dealerCards').append(`<div id = "dealerCard3" class = "dealerCard3"> 
+                <p>${oneCard[0]}</p> 
+        <p class = "suits">${oneCard[1]}</p> 
+        <p class = "value"> ${oneCard[0]}</p> </div>`);
+                if (oneCard[1] == '♦️' || oneCard[1] == '♥️') {
                         $('#dealerCard3').addClass('cardRed');
                 }
-                oneCardConcat = showDealerCardArray.concat(oneDealerCard);
-                if (card.addCards(oneCardConcat) < 17) {
-                        oneDealerCard = card.showOneCard();
-                        $('.dealerCards')
-                                .append(`<div id = "dealerCard3" class = "dealerCard3"> <p>${oneDealerCard[0]}</p> 
-        <p class = "suits">${oneDealerCard[1]}</p> 
-        <p class = "value"> ${oneDealerCard[0]}</p> </div>`);
-                        if (oneDealerCard[1] == '♦️' || oneDealerCard[1] == '♥️') {
-                                $('#dealerCard3').addClass('cardRed');
+                for (let i = 0; i < moreCards.length; i++) {
+                        oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
+                        $('#dealerTotal').text(`Total : ${card.addCards(moreCards)}`);
+                        if (card.addCards(moreCards) >= 22) {
+                                playerWin += 1;
+                                $('#playerWins').text(`Wins : ${playerWin}`);
+                                $('#stand').hide();
+                                $('#hit').hide();
+                                $('.flipCardInner').addClass('flipped');
+                                $('#dealerTotal').text(`Total : ${card.addCards(showDealerCardArray)}`);
                         }
+                        return moreCards;
                 }
-                card.compareCards(showPlayerCardArray, oneCardConcat);
         }
 };
 
