@@ -146,16 +146,14 @@ card.cardDealerCheck = function(array) {
                         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
                         $('#dealerTotal').text(`Total : ${card.addCards(moreCards)}`);
                         if (card.addCards(moreCards) >= 22) {
-                                playerWin += 1;
-                                $('#playerWins').text(`Wins : ${playerWin}`);
                                 $('#stand').hide();
                                 $('#hit').hide();
                                 $('.flipCardInner').addClass('flipped');
                                 $('#dealerTotal').text(`Total : ${card.addCards(showDealerCardArray)}`);
                         }
+                        card.compareCards(showPlayerCardArray, moreCards);
                         return moreCards;
                 }
-                card.compareCards(moreCards, showPlayerCardArray);
         }
 };
 

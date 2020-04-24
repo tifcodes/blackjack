@@ -48,5 +48,6 @@ button {
 }
 
 .mainDiv {
+    @include displayFlex;
     min-height: 95vh;
 }
