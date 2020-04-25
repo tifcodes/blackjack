@@ -447,12 +447,11 @@ button:hover {
 @media (max-width: 765px) {
   .instructions div {
     height: 100vh;
-  }
-}
-@media (max-width: 765px) {
-  .instructions div {
-    height: 125vh;
     padding: 25px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 @media (max-width: 465px) {
@@ -462,7 +461,11 @@ button:hover {
   }
 
   .instructions div {
-    padding: 15px;
+    padding: 5px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .instructions div h3 {
     font-size: 3.2rem;

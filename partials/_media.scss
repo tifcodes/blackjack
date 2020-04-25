@@ -14,15 +14,8 @@
     .instructions{
         div {
         height: 100vh;
-    }
-}
-}
-
-@media (max-width: 765px) {
-    .instructions{
-        div {
-            height: 125vh;
-            padding: 25px;
+        padding: 25px;
+        flex-direction: row;
         }
     }
 }
@@ -33,7 +26,8 @@
     }
     .instructions {
         div {
-            padding: 15px;
+            padding: 5px;
+            flex-direction: row;
             h3 {
                 @include fontSize(3.2rem);
             }
