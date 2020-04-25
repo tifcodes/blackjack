@@ -1,5 +1,21 @@
 body {
     background: $background-color;
+    position: relative;  
+}
+
+body::after {
+    content: "";
+    background-image: url(./../asset/PngItem_122309.png);
+    background-size: 60vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .instructions {
@@ -27,11 +43,15 @@ body {
     }
 }
 
-h1 {
-    @include fontSize(5rem);
-    text-align: center;
-    line-height: normal;
-}
+// h1 {
+//     @include fontSize(5rem);
+//     text-align: center;
+//     line-height: normal;
+// }
+
+// .space {
+//     height: 20vh;
+// }
 
 .buttons {
     text-align: center;

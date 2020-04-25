@@ -219,6 +219,22 @@ body {
 
 body {
   background: #306b34;
+  position: relative;
+}
+
+body::after {
+  content: "";
+  background-image: url(./../asset/PngItem_122309.png);
+  background-size: 60vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .instructions {
@@ -272,13 +288,6 @@ body {
 }
 .instructions div button {
   border: 3px solid #000000;
-}
-
-h1 {
-  font-size: 5rem;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: normal;
 }
 
 .buttons {
@@ -384,7 +393,7 @@ button:hover {
   text-align: center;
   font-size: 2.2rem;
   text-transform: uppercase;
-  color: yellow;
+  color: #000000;
 }
 
 .flipCard {
