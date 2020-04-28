@@ -18,5 +18,8 @@ Adding sounds effects <br>
 [sass](https://sass-lang.com/) </br>
 [vscode](https://code.visualstudio.com/) </br>
 
+### Live Version
+https://tifcodes.github.io/blackjack/
+
 ### Authors
 Tiffany Wong - [tifcodes](https://github.com/tifcodes)
