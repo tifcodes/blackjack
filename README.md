@@ -1,4 +1,4 @@
-![blackJack](https://github.com/tifcodes/tiffanyWongProjectThree/blob/master/asset/Screenshot_2019-12-15%20BlackJack.png)
+![blackJack](https://github.com/tifcodes/tiffanyWongProjectThree/blob/master/asset/Screenshot_2020-04-28)
 
 ## BlackJack App
 
