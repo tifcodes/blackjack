@@ -8,6 +8,10 @@ let cardArray = new Array();
 let showPlayerCardArray = new Array();
 let showDealerCardArray = new Array();
 
+// total sum for player and dealer
+let playerTotal = 0;
+let dealerTotal = 0;
+
 // total wins for the player and dealer
 let playerWin = 0;
 let dealerWin = 0;
@@ -50,22 +54,22 @@ card.showCards = function() {
 // show each card for the player and one card of the dealer
 card.showEachCards = function() {
         // show the total of the player cards
-        $('#playerTotal').text(`${card.addCards(showPlayerCardArray)}`);
-
+        playerTotal = card.addCards(showPlayerCardArray);
+        $('#playerTotal').text(`${playerTotal}`);
         $('.playerCards').append(
-                `<div id = "playerCard1" class = "playerCard1"> 
+                `<div id = "playerCard1" class = "card playerCard1"> 
         <p>${showPlayerCardArray[0]}</p> 
         <p class = "suits">${showPlayerCardArray[1]}</p> 
         <p class = "value"> ${showPlayerCardArray[0]}</p> 
         </div>`
         );
         $('.playerCards').append(
-                `<div id = "playerCard2" class = "playerCard2"> <p>${showPlayerCardArray[2]}</p> 
+                `<div id = "playerCard2" class = "card playerCard2"> <p>${showPlayerCardArray[2]}</p> 
             <p class = "suits">${showPlayerCardArray[3]}</p> 
             <p class = "value"> ${showPlayerCardArray[2]}</p> </div>`
         );
         $('.dealerCards').append(
-                `<div id = "dealerCard1" class = "dealerCard1"> <p>${showDealerCardArray[0]}</p> 
+                `<div id = "dealerCard1" class = "card dealerCard1"> <p>${showDealerCardArray[0]}</p> 
             <p class = "suits">${showDealerCardArray[1]}</p> 
             <p class = "value"> ${showDealerCardArray[0]}</p> </div>`
         );
@@ -76,7 +80,7 @@ card.showEachCards = function() {
             </div>
             <div class="flipCardBack">
         
-            <div id = "dealerCard2" class = "dealerCard2">
+            <div id = "dealerCard2" class = "card dealerCard2">
             <p>${showDealerCardArray[2]}</p> 
                 <p class = "suits">${showDealerCardArray[3]}</p> 
                 <p class = "value"> ${showDealerCardArray[2]}</p> </div>
@@ -100,11 +104,11 @@ card.showEachCards = function() {
 
 // get value/weight for cards
 card.getValue = function(card) {
-        if (card === 'J' || card === 'Q' || card === 'K') {
-                return 10;
-        }
         if (card === 'A') {
                 return 11;
+        }
+        if (card === 'J' || card === 'Q' || card === 'K') {
+                return 10;
         }
         return parseInt(card);
 };
@@ -134,22 +138,23 @@ card.cardDealerCheck = function(array) {
         } else if (card.addCards(array) < 17) {
                 const moreCards = showDealerCardArray;
                 oneCard = card.showOneCard();
-                $('.dealerCards').append(`<div id = "dealerCard3" class = "dealerCard3"> 
+                $('.dealerCards').append(`<div id = "dealerCard3" class = "card dealerCard3"> 
                 <p>${oneCard[0]}</p> 
         <p class = "suits">${oneCard[1]}</p> 
         <p class = "value"> ${oneCard[0]}</p> </div>`);
                 if (oneCard[1] == '♦️' || oneCard[1] == '♥️') {
                         $('#dealerCard3').addClass('cardRed');
                 }
-                $('#dealerTotal').text(`${card.addCards(moreCards)}`);
+                dealerTotal = card.addCards(moreCards);
+                $('#dealerTotal').text(`${dealerTotal}`);
                 for (let i = 0; i < moreCards.length; i++) {
                         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
-                        $('#dealerTotal').text(`${card.addCards(moreCards)}`);
-                        if (card.addCards(moreCards) >= 22) {
+                        $('#dealerTotal').text(`${dealerTotal}`);
+                        if (dealerTotal >= 22) {
                                 $('#stand').hide();
                                 $('#hit').hide();
                                 $('.flipCardInner').addClass('flipped');
-                                $('#dealerTotal').text(`${card.addCards(showDealerCardArray)}`);
+                                $('#dealerTotal').text(`${dealerTotal}`);
                         }
                         card.compareCards(showPlayerCardArray, moreCards);
                         return moreCards;
@@ -161,6 +166,8 @@ card.cardDealerCheck = function(array) {
 card.compareCards = function(num1, num2) {
         const compare1 = card.addCards(num1);
         const compare2 = card.addCards(num2);
+        playerTotal = compare1;
+        dealerTotal = compare2;
         $('#dealerTotal').text(`${compare2}`);
         if (compare1 == 21) {
                 playerWin += 1;
@@ -198,22 +205,24 @@ $('#hit').on('click', function() {
         const moreCards = showPlayerCardArray;
         oneCard = card.showOneCard();
         $('.playerCards').append(
-                `<div id = "playerCard3" class = "playerCard3"> 
+                `<div id = "playerCard3" class = "card playerCard3"> 
             <p>${oneCard[0]}</p> 
             <p class = "suits">${oneCard[1]}</p> 
             <p class = "value"> ${oneCard[0]}</p> </div>`
         );
-        $('#playerTotal').text(`${card.addCards(moreCards)}`);
+        playerTotal = card.addCards(moreCards);
+        $('#playerTotal').text(`${playerTotal}`);
         for (let i = 0; i < moreCards.length; i++) {
                 oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
-                $('#playerTotal').text(`${card.addCards(moreCards)}`);
-                if (card.addCards(moreCards) >= 22) {
+                playerTotal = card.addCards(moreCards);
+                $('#playerTotal').text(`${playerTotal}`);
+                if (playerTotal >= 22) {
                         dealerWin += 1;
                         $('#dealerWins').text(`Wins : ${dealerWin}`);
                         $('#stand').hide();
                         $('#hit').hide();
                         $('.flipCardInner').addClass('flipped');
-                        $('#dealerTotal').text(`${card.addCards(showDealerCardArray)}`);
+                        $('#dealerTotal').text(`${dealerTotal}`);
                 }
                 return moreCards;
         }
@@ -244,6 +253,11 @@ $('#new').on('click', function() {
         card.init();
 });
 
+$('#showInstructions').on('click', function() {
+        $('#instructions').show();
+        $('#main-div').hide();
+});
+
 // init
 card.init = function() {
         cardArray = card.getCard();
@@ -265,3 +279,9 @@ $(function() {
 
         card.init();
 });
+
+// things to do:
+// 2. change the design
+// 3. refactor make the code a little dry
+// 4. CHECK: if less than 17 dealer need to grab cards
+// 6. CHECK: color of 3rd card also changes

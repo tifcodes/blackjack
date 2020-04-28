@@ -1,9 +1,4 @@
-.dealerCard1,
-.dealerCard2,
-.dealerCard3,
-.playerCard1,
-.playerCard2,
-.playerCard3{
+.card {
     @include cardHeightWidth;
     @include displayFlex;
     justify-content: space-between;
@@ -40,15 +35,10 @@
 
 .playerTotal,
 .dealerTotal {
-    text-align: center;
-    font-size: 30px;
-    color: $font-color;
-    border-radius: 50%;
-    background: $secondary-color;
-    width: 50px;
-    height: 50px;
+    @include whiteCircle;
     margin: 0 auto;
 }
+
 // flipped card
 .flipCard {
     @include cardHeightWidth;
