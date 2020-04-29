@@ -156,7 +156,7 @@ card.cardDealerCheck = function(array) {
                                 $('.flipCardInner').addClass('flipped');
                                 $('#dealerTotal').text(`${dealerTotal}`);
                         }
-                        card.compareCards(showPlayerCardArray, moreCards);
+                        card.cardDealerCheck(moreCards);
                         return moreCards;
                 }
         }
@@ -281,7 +281,11 @@ $(function() {
 });
 
 // things to do:
-// 2. change the design
+// 2. change the design (add to show who wins)
 // 3. refactor make the code a little dry
-// 4. CHECK: if less than 17 dealer need to grab cards
-// 6. CHECK: color of 3rd card also changes
+// CHECK: color of 3rd card also changes
+// new games: cards shuffling
+// hit: one card sound
+// stand: one card sound
+// lose: dealer win
+// win: player win

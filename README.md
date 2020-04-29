@@ -5,7 +5,6 @@
 A simple game of blackjack.
 
 ### Working On
-Having Ace as a 1 and 11 <br>
 Adding more users <br>
 Playing with other players <br>
 Adding insurance, split <br>
