@@ -31,7 +31,7 @@
     text-align: center;
     @include fontSize(2.2rem);   
     color: $accent-color;
-    background-color: $font-color;
+    background-color: rgba(0,0,0,.6);
 }
 
 .dealerWins {
