@@ -31,12 +31,21 @@
     text-align: center;
     @include fontSize(2.2rem);   
     color: $accent-color;
+    background-color: $font-color;
+}
+
+.dealerWins {
+    margin-top: 10px;
+}
+
+.playerWins {
+    margin-bottom: 10px;
 }
 
 .playerTotal,
 .dealerTotal {
     @include whiteCircle;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 // flipped card

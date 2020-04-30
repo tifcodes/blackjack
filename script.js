@@ -143,7 +143,7 @@ card.cardDealerCheck = function(array) {
         <p class = "suits">${oneCard[1]}</p> 
         <p class = "value"> ${oneCard[0]}</p> </div>`);
                 if (oneCard[1] == '♦️' || oneCard[1] == '♥️') {
-                        $('#dealerCard3').addClass('cardRed');
+                        $('.dealerCard3').addClass('cardRed');
                 }
                 dealerTotal = card.addCards(moreCards);
                 $('#dealerTotal').text(`${dealerTotal}`);
@@ -151,10 +151,19 @@ card.cardDealerCheck = function(array) {
                         oneCardConcat = moreCards.push(oneCard[0], oneCard[1]);
                         $('#dealerTotal').text(`${dealerTotal}`);
                         if (dealerTotal >= 22) {
+                                playerWin += 1;
+                                $('#playerWins').text(`Player Wins : ${playerWin}`);
                                 $('#stand').hide();
                                 $('#hit').hide();
                                 $('.flipCardInner').addClass('flipped');
                                 $('#dealerTotal').text(`${dealerTotal}`);
+                                Swal.fire({
+                                        title: 'Player Win',
+                                        imageUrl: 'https://media.giphy.com/media/MEWeqM3BehSDLdghe2/giphy.gif',
+                                        imageAlt: 'Player Win',
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                });
                         }
                         card.cardDealerCheck(moreCards);
                         return moreCards;
@@ -171,19 +180,62 @@ card.compareCards = function(num1, num2) {
         $('#dealerTotal').text(`${compare2}`);
         if (compare1 == 21) {
                 playerWin += 1;
-                $('#playerWins').text(`Wins : ${playerWin}`);
+                $('#playerWins').text(`Player Wins : ${playerWin}`);
+                Swal.fire({
+                        title: 'Player BlackJack',
+                        imageUrl: 'https://media.giphy.com/media/l1IXY77djUsHH6S8o/giphy.gif',
+                        imageAlt: 'Player BlackJack',
+                        showConfirmButton: false,
+                        timer: 1500,
+                });
         } else if (compare2 == 21) {
                 dealerWin += 1;
-                $('#dealerWins').text(`Wins : ${dealerWin}`);
+                $('#dealerWins').text(`Dealer Wins : ${dealerWin}`);
+                Swal.fire({
+                        title: 'Dealer BlackJack',
+                        imageUrl: 'https://media.giphy.com/media/26ufcZICbgCSGe5sQ/giphy.gif',
+                        imageAlt: 'Dealer BlackJack',
+                        showConfirmButton: false,
+                        timer: 1500,
+                });
         } else if (compare2 >= 22) {
                 playerWin += 1;
-                $('#playerWins').text(`Wins : ${playerWin}`);
+                $('#playerWins').text(`Player Wins : ${playerWin}`);
+                Swal.fire({
+                        title: 'Player Win',
+                        imageUrl: 'https://media.giphy.com/media/MEWeqM3BehSDLdghe2/giphy.gif',
+                        imageAlt: 'Player Win',
+                        showConfirmButton: false,
+                        timer: 1500,
+                });
         } else if (compare1 > compare2) {
                 playerWin += 1;
-                $('#playerWins').text(`Wins : ${playerWin}`);
+                $('#playerWins').text(`Player Wins : ${playerWin}`);
+                Swal.fire({
+                        title: 'Player Win',
+                        imageUrl: 'https://media.giphy.com/media/MEWeqM3BehSDLdghe2/giphy.gif',
+                        imageAlt: 'Player Win',
+                        showConfirmButton: false,
+                        timer: 1500,
+                });
         } else if (compare1 < compare2) {
                 dealerWin += 1;
-                $('#dealerWins').text(`Wins : ${dealerWin}`);
+                $('#dealerWins').text(`Dealer Wins : ${dealerWin}`);
+                Swal.fire({
+                        title: 'Dealer Win',
+                        imageUrl: 'https://media.giphy.com/media/EndO2bvE3adMc/giphy.gif',
+                        imageAlt: 'Dealer Win',
+                        showConfirmButton: false,
+                        timer: 1500,
+                });
+        } else if (compare1 == compare2) {
+                Swal.fire({
+                        title: 'Draw',
+                        imageUrl: 'https://media.giphy.com/media/A0KitrLeiHw52/giphy.gif',
+                        imageAlt: 'Draw',
+                        showConfirmButton: false,
+                        timer: 1500,
+                });
         }
 };
 
@@ -194,9 +246,6 @@ card.showOneCard = function() {
                 const cardValue = cardArray.pop().Value;
                 const suitValue = cardArray.pop().Suit;
                 oneCardArray.push(cardValue, suitValue);
-        }
-        if (oneCardArray[1] == '♦️' || oneCardArray[1] == '♥️') {
-                $('#playerCard3').addClass('cardRed');
         }
         return oneCardArray;
 };
@@ -210,6 +259,9 @@ $('#hit').on('click', function() {
             <p class = "suits">${oneCard[1]}</p> 
             <p class = "value"> ${oneCard[0]}</p> </div>`
         );
+        if (oneCard[1] == '♦️' || oneCard[1] == '♥️') {
+                $('.playerCard3').addClass('cardRed');
+        }
         playerTotal = card.addCards(moreCards);
         $('#playerTotal').text(`${playerTotal}`);
         for (let i = 0; i < moreCards.length; i++) {
@@ -218,11 +270,18 @@ $('#hit').on('click', function() {
                 $('#playerTotal').text(`${playerTotal}`);
                 if (playerTotal >= 22) {
                         dealerWin += 1;
-                        $('#dealerWins').text(`Wins : ${dealerWin}`);
+                        $('#dealerWins').text(`Dealer Wins : ${dealerWin}`);
                         $('#stand').hide();
                         $('#hit').hide();
                         $('.flipCardInner').addClass('flipped');
                         $('#dealerTotal').text(`${dealerTotal}`);
+                        Swal.fire({
+                                title: 'Dealer Win',
+                                imageUrl: 'https://media.giphy.com/media/EndO2bvE3adMc/giphy.gif',
+                                imageAlt: 'Dealer Win',
+                                showConfirmButton: false,
+                                timer: 1500,
+                        });
                 }
                 return moreCards;
         }
@@ -283,9 +342,8 @@ $(function() {
 // things to do:
 // 2. change the design (add to show who wins)
 // 3. refactor make the code a little dry
-// CHECK: color of 3rd card also changes
-// new games: cards shuffling
-// hit: one card sound
-// stand: one card sound
-// lose: dealer win
-// win: player win
+// dealer win -> sweet alerts?
+// player win ->
+// change hover effects???
+// transition effect for the number of wins
+// add wins

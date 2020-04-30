@@ -18,6 +18,12 @@
         flex-direction: row;
         }
     }
+    .showInstructions {
+        i {
+            top: 20px;
+            right: 25px;
+        }
+    }
 }
 
 @media (max-width: 465px) {
