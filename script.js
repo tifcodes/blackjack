@@ -162,7 +162,7 @@ card.cardDealerCheck = function(array) {
                                         imageUrl: 'https://media.giphy.com/media/MEWeqM3BehSDLdghe2/giphy.gif',
                                         imageAlt: 'Player Win',
                                         showConfirmButton: false,
-                                        timer: 1500,
+                                        timer: 1700,
                                 });
                         }
                         card.cardDealerCheck(moreCards);
@@ -186,7 +186,7 @@ card.compareCards = function(num1, num2) {
                         imageUrl: 'https://media.giphy.com/media/l1IXY77djUsHH6S8o/giphy.gif',
                         imageAlt: 'Player BlackJack',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1700,
                 });
         } else if (compare2 == 21) {
                 dealerWin += 1;
@@ -196,7 +196,7 @@ card.compareCards = function(num1, num2) {
                         imageUrl: 'https://media.giphy.com/media/26ufcZICbgCSGe5sQ/giphy.gif',
                         imageAlt: 'Dealer BlackJack',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1700,
                 });
         } else if (compare2 >= 22) {
                 playerWin += 1;
@@ -206,7 +206,7 @@ card.compareCards = function(num1, num2) {
                         imageUrl: 'https://media.giphy.com/media/MEWeqM3BehSDLdghe2/giphy.gif',
                         imageAlt: 'Player Win',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1700,
                 });
         } else if (compare1 > compare2) {
                 playerWin += 1;
@@ -216,7 +216,7 @@ card.compareCards = function(num1, num2) {
                         imageUrl: 'https://media.giphy.com/media/MEWeqM3BehSDLdghe2/giphy.gif',
                         imageAlt: 'Player Win',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1700,
                 });
         } else if (compare1 < compare2) {
                 dealerWin += 1;
@@ -226,7 +226,7 @@ card.compareCards = function(num1, num2) {
                         imageUrl: 'https://media.giphy.com/media/EndO2bvE3adMc/giphy.gif',
                         imageAlt: 'Dealer Win',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1700,
                 });
         } else if (compare1 == compare2) {
                 Swal.fire({
@@ -234,7 +234,7 @@ card.compareCards = function(num1, num2) {
                         imageUrl: 'https://media.giphy.com/media/A0KitrLeiHw52/giphy.gif',
                         imageAlt: 'Draw',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 1700,
                 });
         }
 };
@@ -280,7 +280,7 @@ $('#hit').on('click', function() {
                                 imageUrl: 'https://media.giphy.com/media/EndO2bvE3adMc/giphy.gif',
                                 imageAlt: 'Dealer Win',
                                 showConfirmButton: false,
-                                timer: 1500,
+                                timer: 1700,
                         });
                 }
                 return moreCards;
